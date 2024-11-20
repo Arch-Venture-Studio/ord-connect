@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16.20.2" # Replace with your required version
+          node-version: "18.12" # Replace with your required version
 
       # Step 3: Install pnpm
       - name: Install pnpm
