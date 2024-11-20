@@ -5,6 +5,9 @@ on:
   release:
     types: [published] # Triggers on GitHub release publication
 
+permissions:
+  contents: write # Grant write permissions to repository contents
+
 jobs:
   build-and-release:
     name: Build and Attach to Release
@@ -44,6 +47,8 @@ jobs:
       # Step 8: Upload Assets to GitHub Release
       - name: Upload Release Assets
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./packages/ord-connect/dist.zip
