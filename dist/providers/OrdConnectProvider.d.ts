@@ -1,12 +1,17 @@
 import { PropsWithChildren } from 'react';
 import { AddressFormat } from '@ordzaar/ordit-sdk';
+
 export declare enum Network {
     MAINNET = "mainnet",
     TESTNET = "testnet",
     SIGNET = "signet"
 }
 export declare enum Wallet {
-    UNISAT = "unisat"
+    UNISAT = "unisat",
+    XVERSE = "xverse",
+    MAGICEDEN = "magiceden",
+    LEATHER = "leather",
+    OKX = "okx"
 }
 export declare enum Chain {
     BITCOIN = "bitcoin",

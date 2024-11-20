@@ -1,4 +1,5 @@
 import { Wallet } from '../../../providers/OrdConnectProvider';
+
 export declare function useConnect({ onClose, onError: onUserError, }: {
     onClose: () => void;
     onError: (err: string) => void;

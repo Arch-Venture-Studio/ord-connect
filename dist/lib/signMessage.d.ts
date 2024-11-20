@@ -1,5 +1,6 @@
 import { AddressFormat } from '@ordzaar/ordit-sdk';
 import { Network, Wallet } from '../providers/OrdConnectProvider';
+
 interface SignMessageParams {
     message: string;
     wallet: Wallet;
@@ -13,5 +14,5 @@ interface SignMessageParams {
  * @param options Options
  * @returns base64 signature
  */
-export default function signMessage({ message, wallet, }: SignMessageParams): Promise<string | null>;
+export default function signMessage({ message, wallet, address, network, format, }: SignMessageParams): Promise<string | null>;
 export {};
