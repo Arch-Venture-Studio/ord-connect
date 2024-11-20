@@ -7,11 +7,7 @@ export declare enum Network {
     SIGNET = "signet"
 }
 export declare enum Wallet {
-    UNISAT = "unisat",
-    XVERSE = "xverse",
-    MAGICEDEN = "magiceden",
-    LEATHER = "leather",
-    OKX = "okx"
+    UNISAT = "unisat"
 }
 export declare enum Chain {
     BITCOIN = "bitcoin",
