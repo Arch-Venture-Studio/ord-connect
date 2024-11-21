@@ -1,44 +1,56 @@
-name: Publish
+name: Publish to GitHub Release
 
 on:
+  workflow_dispatch: # Allows manual triggering
   release:
-    types: [published]
+    types: [published] # Triggers on GitHub release publication
+
+permissions:
+  contents: write # Grant write permissions to repository contents
 
 jobs:
-  npm:
-    name: NPM
+  build-and-release:
+    name: Build and Attach to Release
     runs-on: ubuntu-latest
-    environment: NPM Release Publishing
     steps:
-      - uses: actions/checkout@6d193bf28034eafb982f37bd894289fe649468fc
+      # Step 1: Checkout code
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - run: corepack enable pnpm
-
-      - uses: actions/setup-node@26961cf329f22f6837d5f54c3efd76b480300ace
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version-file: ".nvmrc"
-          cache: pnpm
+          node-version: "20"
 
-      - uses: actions/github-script@660ec11d825b714d112a6bb9727086bc2cc500b2
-        id: version
-        with:
-          script: |
-            const semver = context.ref.replace('refs/tags/v', '')
-            if (semver.match(/^[0-9]+\.[0-9]+\.[0-9]+$/)){
-              return semver
-            }
-            throw new Error('not semver')
-          result-encoding: string
+      # Step 3: Install pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm build
+      # Step 4: Verify pnpm Installation
+      - name: Verify pnpm Installation
+        run: pnpm --version
 
-      - name: Version
-        run: |
-          node ./scripts/version.js --version ${{ steps.version.outputs.result }}
-      - name: Publish
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-          npm run publish
+      # Step 5: Install dependencies
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Step 6: Navigate to the Package and Build
+      - name: Build Project
+        run: pnpm build
+
+      # Step 7: Zip the dist folder for upload
+      - name: Prepare Release Assets
+        working-directory: packages/ord-connect
+        run: zip -r dist.zip dist index.d.ts package.json
+
+      # Step 8: Upload Assets to GitHub Release
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.ORDZAAR_NPM_BOT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./packages/ord-connect/dist.zip
+          asset_name: ord-connect-dist.zip
+          asset_content_type: application/zip
