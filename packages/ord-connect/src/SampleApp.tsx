@@ -116,11 +116,16 @@ function TestControls() {
 export function SampleApp() {
   return (
     <div className="app">
-      <OrdConnectProvider network={Network.TESTNET} chain={Chain.BITCOIN}>
+      <OrdConnectProvider
+        network={Network.TESTNET}
+        visibleWallets={[Wallet.UNISAT]}
+        chain={Chain.BITCOIN}
+      >
         <OrdConnectKit
           onViewProfile={() => console.log("View profile clicked")}
           preferredWallet={Wallet.XVERSE}
           walletsOrder={[Wallet.XVERSE, Wallet.MAGICEDEN, Wallet.OKX]}
+          visibleWallets={[Wallet.UNISAT, Wallet.XVERSE]}
         />
         <TestControls />
       </OrdConnectProvider>

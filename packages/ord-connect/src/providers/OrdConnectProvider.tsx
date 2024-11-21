@@ -60,6 +60,8 @@ interface OrdConnectContextType {
   disconnectWallet: () => void;
   chain: Chain;
   updateChain: (chain: Chain) => void;
+  visibleWallets: string[];
+  updateVisibleWallets: (visibleWallets: string[]) => void;
 }
 
 const OrdConnectContext = createContext<OrdConnectContextType | undefined>(
@@ -73,6 +75,7 @@ const FORMAT = "format";
 
 export type OrdConnectProviderProps = {
   network: Network;
+  visibleWallets: string[];
   chain?: Chain;
   ssr?: boolean;
 };
@@ -105,13 +108,20 @@ export type OrdConnectProviderProps = {
 export function OrdConnectProvider({
   children,
   network: _network,
+  visibleWallets: _visibleWallets,
   chain: _chain = Chain.BITCOIN,
   ssr = false,
 }: PropsWithChildren<OrdConnectProviderProps>) {
   if (!_network) {
     throw new Error("Network cannot be empty");
   }
+
+  if (!_visibleWallets || _visibleWallets.length === 0) {
+    throw new Error("Visible wallets cannot be empty");
+  }
+
   const [network, setNetwork] = useState(_network);
+  const [visibleWallets, setVisibleWallets] = useState(_visibleWallets);
   const [chain, setChain] = useState(_chain);
 
   const [address, setAddress] = useLocalStorage<BiAddressString>(
@@ -164,6 +174,8 @@ export function OrdConnectProvider({
       disconnectWallet,
       chain,
       updateChain: setChain,
+      visibleWallets,
+      updateVisibleWallets: setVisibleWallets,
     }),
     [
       address,

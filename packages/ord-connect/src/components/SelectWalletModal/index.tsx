@@ -33,6 +33,7 @@ interface SelectWalletModalProps {
   renderAvatar?: (address: string, size: "large" | "small") => ReactNode;
   preferredWallet?: Wallet;
   walletsOrder?: Wallet[];
+  visibleWallets?: Wallet[];
 }
 
 const CHAIN_TO_NAME = {
@@ -46,6 +47,7 @@ export function SelectWalletModal({
   renderAvatar,
   preferredWallet,
   walletsOrder,
+  visibleWallets,
 }: SelectWalletModalProps) {
   const [errorMessage, setErrorMessage] = useState("");
   const { connectWallet } = useConnect({
@@ -95,7 +97,7 @@ export function SelectWalletModal({
         order: 24,
         chains: [Chain.BITCOIN],
       },
-    ];
+    ].filter((wallet) => (visibleWallets || []).includes(wallet.wallet));
 
     const walletList = ALL_WALLETS.filter(
       (walletItem) => walletItem.chains.includes(chain) && !walletItem.hidden,
