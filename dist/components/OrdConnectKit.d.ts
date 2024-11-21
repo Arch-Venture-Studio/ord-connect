@@ -9,7 +9,6 @@ export interface OrdConnectKitProps {
     renderAvatar?: (address: string, size: "large" | "small") => ReactNode;
     preferredWallet?: Wallet;
     walletsOrder?: Wallet[];
-    visibleWallets?: Wallet[];
 }
 /**
  * Parent React component for OrdConnectKit, in the form of a button.
@@ -25,4 +24,4 @@ export interface OrdConnectKitProps {
  * @param {Wallet[]} [props.walletsOrder] - Customize wallets display order in select wallet pop up.
  * @returns {JSX.Element} OrdConnectKit React component.
  */
-export declare function OrdConnectKit({ hideConnectButton, onViewProfile, onChangeWalletClick, onDisconnectWalletClick, renderAvatar, preferredWallet, walletsOrder, visibleWallets, }: OrdConnectKitProps): import("react/jsx-runtime").JSX.Element;
+export declare function OrdConnectKit({ hideConnectButton, onViewProfile, onChangeWalletClick, onDisconnectWalletClick, renderAvatar, preferredWallet, walletsOrder, }: OrdConnectKitProps): import("react/jsx-runtime").JSX.Element;

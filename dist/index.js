@@ -2993,42 +2993,42 @@ function Ng({
   onDisconnectWalletClick: n,
   renderAvatar: i,
   preferredWallet: o,
-  walletsOrder: s,
-  visibleWallets: a
+  walletsOrder: s
 }) {
   const {
-    address: l,
-    disconnectWallet: p,
-    network: f,
-    isModalOpen: d,
-    openModal: S,
-    closeModal: m
-  } = zt(), B = ef(), O = () => e ? null : l != null && l.ordinals ? /* @__PURE__ */ Y.jsx(
+    address: a,
+    disconnectWallet: l,
+    network: p,
+    isModalOpen: f,
+    openModal: d,
+    closeModal: S,
+    visibleWallets: m
+  } = zt(), B = ef(), O = () => e ? null : a != null && a.ordinals ? /* @__PURE__ */ Y.jsx(
     Ih,
     {
-      address: l.ordinals,
-      network: f,
+      address: a.ordinals,
+      network: p,
       onViewProfile: t,
       onChangeWallet: () => {
-        S(), r == null || r();
+        d(), r == null || r();
       },
       onDisconnectWallet: () => {
-        p(), n == null || n();
+        l(), n == null || n();
       },
       renderAvatar: i
     }
-  ) : /* @__PURE__ */ Y.jsx(Oh, { disabled: !B, openModal: S });
+  ) : /* @__PURE__ */ Y.jsx(Oh, { disabled: !B, openModal: d });
   return /* @__PURE__ */ Y.jsxs(Y.Fragment, { children: [
     O(),
     B ? /* @__PURE__ */ Y.jsx(
       Mh,
       {
-        isOpen: d,
-        closeModal: m,
+        isOpen: f,
+        closeModal: S,
         renderAvatar: i,
         preferredWallet: o,
         walletsOrder: s,
-        visibleWallets: a
+        visibleWallets: m
       }
     ) : null
   ] });
