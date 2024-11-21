@@ -17,7 +17,6 @@ export interface OrdConnectKitProps {
   renderAvatar?: (address: string, size: "large" | "small") => ReactNode;
   preferredWallet?: Wallet;
   walletsOrder?: Wallet[];
-  visibleWallets?: Wallet[];
 }
 
 /**
@@ -42,7 +41,6 @@ export function OrdConnectKit({
   renderAvatar,
   preferredWallet,
   walletsOrder,
-  visibleWallets,
 }: OrdConnectKitProps) {
   const {
     address,
@@ -51,6 +49,7 @@ export function OrdConnectKit({
     isModalOpen,
     openModal,
     closeModal,
+    visibleWallets,
   } = useOrdConnect();
 
   const hasMounted = useHasMounted();

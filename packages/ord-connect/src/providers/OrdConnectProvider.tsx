@@ -60,8 +60,8 @@ interface OrdConnectContextType {
   disconnectWallet: () => void;
   chain: Chain;
   updateChain: (chain: Chain) => void;
-  visibleWallets: string[];
-  updateVisibleWallets: (visibleWallets: string[]) => void;
+  visibleWallets: Wallet[];
+  updateVisibleWallets: (visibleWallets: Wallet[]) => void;
 }
 
 const OrdConnectContext = createContext<OrdConnectContextType | undefined>(
@@ -75,7 +75,7 @@ const FORMAT = "format";
 
 export type OrdConnectProviderProps = {
   network: Network;
-  visibleWallets: string[];
+  visibleWallets: Wallet[];
   chain?: Chain;
   ssr?: boolean;
 };

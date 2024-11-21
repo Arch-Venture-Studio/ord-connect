@@ -118,14 +118,13 @@ export function SampleApp() {
     <div className="app">
       <OrdConnectProvider
         network={Network.TESTNET}
-        visibleWallets={[Wallet.UNISAT]}
+        visibleWallets={[Wallet.UNISAT, Wallet.MAGICEDEN]}
         chain={Chain.BITCOIN}
       >
         <OrdConnectKit
           onViewProfile={() => console.log("View profile clicked")}
           preferredWallet={Wallet.XVERSE}
           walletsOrder={[Wallet.XVERSE, Wallet.MAGICEDEN, Wallet.OKX]}
-          visibleWallets={[Wallet.UNISAT, Wallet.XVERSE]}
         />
         <TestControls />
       </OrdConnectProvider>
