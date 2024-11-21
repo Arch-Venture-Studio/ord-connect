@@ -31,5 +31,5 @@ export interface SerializedPsbt {
  * @param psbt
  * @param options
  */
-export default function signPsbt({ wallet, psbt, options, }: SignPsbtParams): Promise<SerializedPsbt>;
+export default function signPsbt({ address, wallet, network, psbt, options, }: SignPsbtParams): Promise<SerializedPsbt>;
 export {};

@@ -7,7 +7,11 @@ export declare enum Network {
     SIGNET = "signet"
 }
 export declare enum Wallet {
-    UNISAT = "unisat"
+    UNISAT = "unisat",
+    XVERSE = "xverse",
+    MAGICEDEN = "magiceden",
+    LEATHER = "leather",
+    OKX = "okx"
 }
 export declare enum Chain {
     BITCOIN = "bitcoin",
@@ -36,9 +40,12 @@ interface OrdConnectContextType {
     disconnectWallet: () => void;
     chain: Chain;
     updateChain: (chain: Chain) => void;
+    visibleWallets: string[];
+    updateVisibleWallets: (visibleWallets: string[]) => void;
 }
 export type OrdConnectProviderProps = {
     network: Network;
+    visibleWallets: string[];
     chain?: Chain;
     ssr?: boolean;
 };
@@ -67,6 +74,6 @@ export type OrdConnectProviderProps = {
  * @param props.ssr - Enable SSR.
  * @returns Provider component for OrdConnect.
  */
-export declare function OrdConnectProvider({ children, network: _network, chain: _chain, ssr, }: PropsWithChildren<OrdConnectProviderProps>): import("react/jsx-runtime").JSX.Element;
+export declare function OrdConnectProvider({ children, network: _network, visibleWallets: _visibleWallets, chain: _chain, ssr, }: PropsWithChildren<OrdConnectProviderProps>): import("react/jsx-runtime").JSX.Element;
 export declare function useOrdConnect(): OrdConnectContextType;
 export {};
