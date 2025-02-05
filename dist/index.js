@@ -851,9 +851,13 @@ function Bg({
       publicKey: O,
       updatePublicKey: x,
       network: o,
-      updateNetwork: s,
+      updateNetwork: (h) => {
+        s(m === "xverse" && h === "testnet" ? "testnet4" : h);
+      },
       wallet: m,
-      updateWallet: B,
+      updateWallet: (h) => {
+        (o === "testnet" || o === "testnet4") && s(h === "xverse" ? "testnet4" : "testnet"), B(h);
+      },
       isModalOpen: k,
       openModal: M,
       closeModal: F,
