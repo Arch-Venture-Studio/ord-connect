@@ -236,6 +236,7 @@ export function OrdConnectProvider({
 
 export function useOrdConnect() {
   const context = useContext(OrdConnectContext);
+  console.log("+context", context);
 
   if (!context) {
     throw new Error("useOrdConnect must be used within OrdConnectProvider");

@@ -1,13 +1,26 @@
 import { useEffect } from "react";
 import {
+  AddressPurpose,
+  BitcoinNetworkType,
+  BitcoinProvider,
+  getAddress,
+  GetAddressOptions,
+  GetAddressResponse,
+} from "sats-connect";
+import {
   BrowserWalletNotInstalledError,
   BrowserWalletRequestCancelledByUserError,
+  BrowserWalletSigningError,
+  getAddressFormat,
+  OrditSDKError,
 } from "@ordzaar/ordit-sdk";
 import { getAddresses as getLeatherAddresses } from "@ordzaar/ordit-sdk/leather";
 import { getAddresses as getMagicEdenAddress } from "@ordzaar/ordit-sdk/magiceden";
-import { getAddresses as getOKXAddresses } from "@ordzaar/ordit-sdk/okx";
+import {
+  getAddresses as getOKXAddresses,
+  WalletAddress,
+} from "@ordzaar/ordit-sdk/okx";
 import { getAddresses as getUnisatAddresses } from "@ordzaar/ordit-sdk/unisat";
-import { getAddresses as getXverseAddresses } from "@ordzaar/ordit-sdk/xverse";
 
 import {
   BiAddressFormat,
@@ -23,6 +36,66 @@ type ConnectedWalletType = {
   address: BiAddressString;
   publicKey: BiAddressString;
   format: BiAddressFormat;
+};
+
+const getXverseAddresses = async (
+  network: Network,
+): Promise<WalletAddress[]> => {
+  if (typeof window === "undefined") {
+    throw new OrditSDKError("Cannot call this function outside a browser");
+  }
+  const hasXverse =
+    typeof window.XverseProviders?.BitcoinProvider !== "undefined";
+  if (!hasXverse) {
+    throw new BrowserWalletNotInstalledError("Xverse not installed");
+  }
+  const getProvider = async () =>
+    window.XverseProviders!.BitcoinProvider! as BitcoinProvider;
+
+  const result: WalletAddress[] = [];
+
+  const options: GetAddressOptions = {
+    payload: {
+      purposes: ["ordinals", "payment"] as AddressPurpose[],
+      message: "Provide access to Payment address and Ordinals address",
+      network: {
+        type: BitcoinNetworkType.Testnet4,
+      },
+    },
+    getProvider,
+    onFinish: (response: GetAddressResponse) => {
+      if (!response || !response.addresses || response.addresses.length !== 2) {
+        throw new BrowserWalletSigningError(
+          "Failed to retrieve addresses using selected wallet",
+        );
+      }
+
+      response.addresses.forEach((addressObj) => {
+        const format = getAddressFormat(addressObj.address, network);
+
+        let fullPubKey = addressObj.publicKey;
+        if (format === "taproot") {
+          // For taproot addresses, sats-connect returns the x-only public key.
+          const xOnlyBuffer = Buffer.from(addressObj.publicKey, "hex");
+          fullPubKey =
+            xOnlyBuffer.length === 33 ? fullPubKey : `02${fullPubKey}`;
+        }
+
+        result.push({
+          publicKey: fullPubKey,
+          address: addressObj.address,
+          format,
+        });
+      });
+    },
+    onCancel: () => {
+      throw new BrowserWalletRequestCancelledByUserError();
+    },
+  };
+
+  await getAddress(options);
+
+  return result;
 };
 
 const WALLET_CHROME_EXTENSION_URL: Record<Wallet, string> = {
@@ -41,8 +114,10 @@ const connectWallet = async (
   }: { network: Network; wallet: string; chain?: Chain },
   { readOnly = false } = {},
 ): Promise<ConnectedWalletType> => {
+  console.log("==>wallet", wallet);
   switch (wallet) {
     case Wallet.UNISAT: {
+      console.log("unisat1", network, wallet);
       const unisat = await getUnisatAddresses(network, chain, { readOnly });
       if (!unisat || unisat.length < 1) {
         throw new Error("Unisat via Ordit returned no addresses");
@@ -65,7 +140,10 @@ const connectWallet = async (
       };
     }
     case Wallet.XVERSE: {
+      console.log("xverse1", network, wallet);
+
       const xverse = await getXverseAddresses(network);
+      console.log("xverse1", xverse);
       if (!xverse || xverse.length < 1) {
         throw new Error("Xverse via Ordit returned no addresses");
       }
@@ -91,6 +169,8 @@ const connectWallet = async (
       if (!ordinalsAddress) {
         throw new Error("Xverse via Ordit did not return a Taproot address");
       }
+
+      console.log("xverse2", ordinalsAddress, paymentsAddress);
 
       return {
         address: {
@@ -284,7 +364,9 @@ export function useConnect({
 
   // Reconnect address change listener if a connected wallet exists
   useEffect(() => {
+    console.log("connectedWallet", connectedWallet);
     if (connectedWallet !== Wallet.UNISAT) {
+      console.log("connectedWallet", connectedWallet);
       return undefined;
     }
 
