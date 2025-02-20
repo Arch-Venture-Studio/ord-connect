@@ -50,10 +50,14 @@ export function WalletButton({
 
     const isXverseTestnet =
       wallet === Wallet.XVERSE && network === Network.TESTNET;
+
+    const isTestnet4 = network === "testnet4";
+
+    console.log("isXverseTestnet==>", isXverseTestnet);
     if (isXverseTestnet) {
       updateNetwork("testnet4" as Network);
     } else {
-      updateNetwork(Network.TESTNET);
+      updateNetwork(isTestnet4 ? "testnet4" : Network.TESTNET);
     }
 
     try {
