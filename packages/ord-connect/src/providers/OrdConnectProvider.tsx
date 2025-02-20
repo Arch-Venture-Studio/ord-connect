@@ -163,9 +163,28 @@ export function OrdConnectProvider({
       publicKey,
       updatePublicKey: setPublicKey,
       network,
-      updateNetwork: setNetwork,
+      updateNetwork: (networkParam) => {
+        if (wallet === Wallet.XVERSE && networkParam === Network.TESTNET) {
+          setNetwork("testnet4" as Network);
+        } else {
+          setNetwork(networkParam);
+        }
+      },
       wallet,
-      updateWallet: setWallet,
+      updateWallet: (walletParam) => {
+        if (
+          network === Network.TESTNET ||
+          network === ("testnet4" as Network)
+        ) {
+          if (walletParam === Wallet.XVERSE) {
+            setNetwork("testnet4" as Network);
+          } else {
+            setNetwork(Network.TESTNET);
+          }
+        }
+
+        setWallet(walletParam);
+      },
       isModalOpen,
       openModal,
       closeModal,
