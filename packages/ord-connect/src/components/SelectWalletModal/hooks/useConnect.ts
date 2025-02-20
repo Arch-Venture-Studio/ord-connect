@@ -32,6 +32,15 @@ import {
 } from "../../../providers/OrdConnectProvider";
 import { waitForUnisatExtensionReady } from "../../../utils/unisat";
 
+export const NETWORK_TO_BITCOIN_NETWORK_TYPE: Record<
+  Network,
+  BitcoinNetworkType
+> = {
+  mainnet: BitcoinNetworkType.Mainnet,
+  testnet: BitcoinNetworkType.Testnet,
+  signet: BitcoinNetworkType.Signet,
+} as const;
+
 type ConnectedWalletType = {
   address: BiAddressString;
   publicKey: BiAddressString;
@@ -59,7 +68,10 @@ const getXverseAddresses = async (
       purposes: ["ordinals", "payment"] as AddressPurpose[],
       message: "Provide access to Payment address and Ordinals address",
       network: {
-        type: BitcoinNetworkType.Testnet4,
+        type:
+          network === Network.TESTNET
+            ? BitcoinNetworkType.Testnet4
+            : NETWORK_TO_BITCOIN_NETWORK_TYPE[network],
       },
     },
     getProvider,
