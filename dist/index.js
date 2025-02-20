@@ -2752,10 +2752,8 @@ function Nh({
     }
   };
   return Se(() => {
-    if (d !== ee.UNISAT) {
-      console.log("connectedWallet", d);
+    if (console.log("connectedWallet", d), d !== ee.UNISAT)
       return;
-    }
     let O = !0, x = !1;
     const $ = () => B(ee.UNISAT);
     return l && p && f && (async () => {
