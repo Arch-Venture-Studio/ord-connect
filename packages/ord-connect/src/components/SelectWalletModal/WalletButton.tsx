@@ -3,7 +3,11 @@ import Avatar from "boring-avatars";
 
 import ChevronRightIcon from "../../assets/chevron-right.svg";
 import LoadingIcon from "../../assets/loading.svg";
-import { useOrdConnect, Wallet } from "../../providers/OrdConnectProvider";
+import {
+  Network,
+  useOrdConnect,
+  Wallet,
+} from "../../providers/OrdConnectProvider";
 import { isMobileUserAgent } from "../../utils/mobile-detector";
 import { truncateMiddle } from "../../utils/text-helper";
 
@@ -31,14 +35,27 @@ export function WalletButton({
   isPreferred,
 }: WalletButtonProps) {
   const isMobile = isMobileUserAgent();
-  const { wallet: connectedWallet, address: connectedAddress } =
-    useOrdConnect();
+  const {
+    network,
+    wallet: connectedWallet,
+    address: connectedAddress,
+    updateNetwork,
+  } = useOrdConnect();
 
   const [loading, setLoading] = useState(false);
   const walletName = WALLET_TO_NAME[wallet];
 
   const handleWalletConnectClick = async () => {
     setLoading(true);
+
+    const isXverseTestnet =
+      wallet === Wallet.XVERSE && network === Network.TESTNET;
+    if (isXverseTestnet) {
+      updateNetwork("testnet4" as Network);
+    } else {
+      updateNetwork(Network.TESTNET);
+    }
+
     try {
       await onConnect();
     } catch (e) {
