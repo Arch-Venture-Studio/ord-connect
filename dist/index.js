@@ -21502,8 +21502,8 @@ function WalletButton({
     updateNetwork: nt
   } = useOrdConnect(), [oe, ke] = useState(!1), ut = WALLET_TO_NAME[A], st = async () => {
     ke(!0);
-    const wt = A === Wallet.XVERSE && ne === Network.TESTNET;
-    nt(wt ? "testnet4" : Network.TESTNET);
+    const wt = A === Wallet.XVERSE && ne === Network.TESTNET, Et = ne === "testnet4";
+    console.log("isXverseTestnet==>", wt), nt(wt || Et ? "testnet4" : Network.TESTNET);
     try {
       await B();
     } catch {
