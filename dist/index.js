@@ -146,7 +146,7 @@ function zl(e) {
     });
   }), r;
 }
-var ss = { exports: {} }, Ln = {};
+var ss = { exports: {} }, Un = {};
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -158,7 +158,7 @@ var ss = { exports: {} }, Ln = {};
  */
 var la;
 function Jl() {
-  if (la) return Ln;
+  if (la) return Un;
   la = 1;
   var e = ie, t = Symbol.for("react.element"), r = Symbol.for("react.fragment"), n = Object.prototype.hasOwnProperty, i = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, o = { key: !0, ref: !0, __self: !0, __source: !0 };
   function s(a, l, p) {
@@ -168,9 +168,9 @@ function Jl() {
     if (a && a.defaultProps) for (f in l = a.defaultProps, l) d[f] === void 0 && (d[f] = l[f]);
     return { $$typeof: t, type: a, key: S, ref: m, props: d, _owner: i.current };
   }
-  return Ln.Fragment = r, Ln.jsx = s, Ln.jsxs = s, Ln;
+  return Un.Fragment = r, Un.jsx = s, Un.jsxs = s, Un;
 }
-var Hn = {}, fa;
+var Ln = {}, fa;
 function Zl() {
   return fa || (fa = 1, wc.env.NODE_ENV !== "production" && function() {
     var e = ie, t = Symbol.for("react.element"), r = Symbol.for("react.portal"), n = Symbol.for("react.fragment"), i = Symbol.for("react.strict_mode"), o = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), a = Symbol.for("react.context"), l = Symbol.for("react.forward_ref"), p = Symbol.for("react.suspense"), f = Symbol.for("react.suspense_list"), d = Symbol.for("react.memo"), S = Symbol.for("react.lazy"), m = Symbol.for("react.offscreen"), B = Symbol.iterator, O = "@@iterator";
@@ -458,7 +458,7 @@ function Zl() {
       } else
         hi.setExtraStackFrame(null);
     }
-    function Fn(_, V, X, Z, me) {
+    function Rn(_, V, X, Z, me) {
       {
         var Ee = Function.call.bind(vt);
         for (var fe in _)
@@ -478,7 +478,7 @@ function Zl() {
       }
     }
     var Po = Array.isArray;
-    function Un(_) {
+    function Fn(_) {
       return Po(_);
     }
     function di(_) {
@@ -657,7 +657,7 @@ Check the top-level render call using <` + X + ">.");
       {
         if (typeof _ != "object")
           return;
-        if (Un(_))
+        if (Fn(_))
           for (var X = 0; X < _.length; X++) {
             var Z = _[X];
             So(Z) && oa(Z, V);
@@ -688,7 +688,7 @@ Check the top-level render call using <` + X + ">.");
           return;
         if (X) {
           var Z = P(V);
-          Fn(X, _.props, "prop", Z, _);
+          Rn(X, _.props, "prop", Z, _);
         } else if (V.PropTypes !== void 0 && !bo) {
           bo = !0;
           var me = P(V);
@@ -719,7 +719,7 @@ Check the top-level render call using <` + X + ">.");
           var st = fl();
           st ? ue += st : ue += na();
           var Re;
-          _ === null ? Re = "null" : Un(_) ? Re = "array" : _ !== void 0 && _.$$typeof === t ? (Re = "<" + (P(_.type) || "Unknown") + " />", ue = " Did you accidentally export a JSX literal instead of a component?") : Re = typeof _, A("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", Re, ue);
+          _ === null ? Re = "null" : Fn(_) ? Re = "array" : _ !== void 0 && _.$$typeof === t ? (Re = "<" + (P(_.type) || "Unknown") + " />", ue = " Did you accidentally export a JSX literal instead of a component?") : Re = typeof _, A("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", Re, ue);
         }
         var Le = ke(_, V, X, me, Ee);
         if (Le == null)
@@ -728,7 +728,7 @@ Check the top-level render call using <` + X + ">.");
           var Tt = V.children;
           if (Tt !== void 0)
             if (Z)
-              if (Un(Tt)) {
+              if (Fn(Tt)) {
                 for (var gn = 0; gn < Tt.length; gn++)
                   sa(Tt[gn], _);
                 Object.freeze && Object.freeze(Tt);
@@ -761,8 +761,8 @@ React keys must be passed directly to JSX without using spread:
       return ca(_, V, X, !1);
     }
     var ml = wl, yl = gl;
-    Hn.Fragment = n, Hn.jsx = ml, Hn.jsxs = yl;
-  }()), Hn;
+    Ln.Fragment = n, Ln.jsx = ml, Ln.jsxs = yl;
+  }()), Ln;
 }
 wc.env.NODE_ENV === "production" ? ss.exports = Jl() : ss.exports = Zl();
 var Y = ss.exports;
@@ -810,7 +810,7 @@ function gi(e, t, r = {}) {
     s(i());
   }, [e]), [o, a];
 }
-var _n = /* @__PURE__ */ ((e) => (e.MAINNET = "mainnet", e.TESTNET = "testnet", e.SIGNET = "signet", e))(_n || {}), ee = /* @__PURE__ */ ((e) => (e.UNISAT = "unisat", e.XVERSE = "xverse", e.MAGICEDEN = "magiceden", e.LEATHER = "leather", e.OKX = "okx", e))(ee || {}), qt = /* @__PURE__ */ ((e) => (e.BITCOIN = "bitcoin", e.FRACTAL_BITCOIN = "fractal-bitcoin", e))(qt || {});
+var Zn = /* @__PURE__ */ ((e) => (e.MAINNET = "mainnet", e.TESTNET = "testnet", e.SIGNET = "signet", e))(Zn || {}), ee = /* @__PURE__ */ ((e) => (e.UNISAT = "unisat", e.XVERSE = "xverse", e.MAGICEDEN = "magiceden", e.LEATHER = "leather", e.OKX = "okx", e))(ee || {}), qt = /* @__PURE__ */ ((e) => (e.BITCOIN = "bitcoin", e.FRACTAL_BITCOIN = "fractal-bitcoin", e))(qt || {});
 const wn = {
   payments: null,
   ordinals: null
@@ -851,9 +851,13 @@ function Bg({
       publicKey: O,
       updatePublicKey: x,
       network: o,
-      updateNetwork: s,
+      updateNetwork: (h) => {
+        s(m === "xverse" && h === "testnet" ? "testnet4" : h);
+      },
       wallet: m,
-      updateWallet: B,
+      updateWallet: (h) => {
+        (o === "testnet" || o === "testnet4") && s(h === "xverse" ? "testnet4" : "testnet"), B(h);
+      },
       isModalOpen: k,
       openModal: M,
       closeModal: F,
@@ -892,7 +896,7 @@ function Bg({
 }
 function zt() {
   const e = yt(yc);
-  if (!e)
+  if (console.log("context", e), !e)
     throw new Error("useOrdConnect must be used within OrdConnectProvider");
   return e;
 }
@@ -1110,7 +1114,7 @@ function ff() {
   return "useSyncExternalStore" in xr ? ((t) => t.useSyncExternalStore)(xr)(() => () => {
   }, () => !1, () => !e) : !1;
 }
-function Nn() {
+function Cn() {
   let e = ff(), [t, r] = xr.useState(ur.isHandoffComplete);
   return t && ur.isHandoffComplete === !1 && r(!1), xr.useEffect(() => {
     t !== !0 && r(!0);
@@ -1118,7 +1122,7 @@ function Nn() {
 }
 var da;
 let wr = (da = ie.useId) != null ? da : function() {
-  let e = Nn(), [t, r] = ie.useState(e ? () => ur.nextId() : null);
+  let e = Cn(), [t, r] = ie.useState(e ? () => ur.nextId() : null);
   return qe(() => {
     t === null && r(ur.nextId());
   }, [t]), t != null ? "" + t : void 0;
@@ -1269,7 +1273,7 @@ function Ic(e, t, r = !0) {
     yf() || o.current && (i(s, () => o.current), o.current = null);
   }, !0), wi("touchend", (s) => i(s, () => s.target instanceof HTMLElement ? s.target : null), !0), _c("blur", (s) => i(s, () => window.document.activeElement instanceof HTMLIFrameElement ? window.document.activeElement : null), !0);
 }
-function Rn(...e) {
+function Nn(...e) {
   return De(() => qi(...e), [...e]);
 }
 function pa(e) {
@@ -1337,7 +1341,7 @@ function _s(e, t) {
 function Ui(...e) {
   return Array.from(new Set(e.flatMap((t) => typeof t == "string" ? t.split(" ") : []))).filter(Boolean).join(" ");
 }
-var xn = ((e) => (e[e.None = 0] = "None", e[e.RenderStrategy = 1] = "RenderStrategy", e[e.Static = 2] = "Static", e))(xn || {}), Or = ((e) => (e[e.Unmount = 0] = "Unmount", e[e.Hidden = 1] = "Hidden", e))(Or || {});
+var kn = ((e) => (e[e.None = 0] = "None", e[e.RenderStrategy = 1] = "RenderStrategy", e[e.Static = 2] = "Static", e))(kn || {}), Or = ((e) => (e[e.Unmount = 0] = "Unmount", e[e.Hidden = 1] = "Hidden", e))(Or || {});
 function ot({ ourProps: e, theirProps: t, slot: r, defaultTag: n, features: i, visible: o = !0, name: s, mergeRefs: a }) {
   a = a ?? Sf;
   let l = kc(t, e);
@@ -1514,7 +1518,7 @@ function Nc(e) {
     });
   }), [t]);
 }
-var qn = ((e) => (e[e.Forwards = 0] = "Forwards", e[e.Backwards = 1] = "Backwards", e))(qn || {});
+var Xn = ((e) => (e[e.Forwards = 0] = "Forwards", e[e.Backwards = 1] = "Backwards", e))(Xn || {});
 function xf() {
   let e = de(0);
   return _c("keydown", (t) => {
@@ -1532,17 +1536,17 @@ let Bf = "div";
 var Fc = ((e) => (e[e.None = 1] = "None", e[e.InitialFocus = 2] = "InitialFocus", e[e.TabLock = 4] = "TabLock", e[e.FocusLock = 8] = "FocusLock", e[e.RestoreFocus = 16] = "RestoreFocus", e[e.All = 30] = "All", e))(Fc || {});
 function Cf(e, t) {
   let r = de(null), n = ht(r, t), { initialFocus: i, containers: o, features: s = 30, ...a } = e;
-  Nn() || (s = 1);
-  let l = Rn(r);
+  Cn() || (s = 1);
+  let l = Nn(r);
   Ff({ ownerDocument: l }, !!(s & 16));
   let p = Uf({ ownerDocument: l, container: r, initialFocus: i }, !!(s & 2));
   Lf({ ownerDocument: l, container: r, containers: o, previousActiveElement: p }, !!(s & 8));
   let f = xf(), d = ce((O) => {
     let x = r.current;
     x && (($) => $())(() => {
-      Xe(f.current, { [qn.Forwards]: () => {
+      Xe(f.current, { [Xn.Forwards]: () => {
         ei(x, sr.First, { skipElements: [O.relatedTarget] });
-      }, [qn.Backwards]: () => {
+      }, [Xn.Backwards]: () => {
         ei(x, sr.Last, { skipElements: [O.relatedTarget] });
       } });
     });
@@ -1554,11 +1558,11 @@ function Cf(e, t) {
     let x = Rc(o);
     r.current instanceof HTMLElement && x.add(r.current);
     let $ = O.relatedTarget;
-    $ instanceof HTMLElement && $.dataset.headlessuiFocusGuard !== "true" && (Uc(x, $) || (m.current ? ei(r.current, Xe(f.current, { [qn.Forwards]: () => sr.Next, [qn.Backwards]: () => sr.Previous }) | sr.WrapAround, { relativeTo: O.target }) : O.target instanceof HTMLElement && Br(O.target)));
+    $ instanceof HTMLElement && $.dataset.headlessuiFocusGuard !== "true" && (Uc(x, $) || (m.current ? ei(r.current, Xe(f.current, { [Xn.Forwards]: () => sr.Next, [Xn.Backwards]: () => sr.Previous }) | sr.WrapAround, { relativeTo: O.target }) : O.target instanceof HTMLElement && Br(O.target)));
   } };
   return ie.createElement(ie.Fragment, null, !!(s & 4) && ie.createElement(cs, { as: "button", type: "button", "data-headlessui-focus-guard": !0, onFocus: d, features: Li.Focusable }), ot({ ourProps: B, theirProps: a, defaultTag: Bf, name: "FocusTrap" }), !!(s & 4) && ie.createElement(cs, { as: "button", type: "button", "data-headlessui-focus-guard": !0, onFocus: d, features: Li.Focusable }));
 }
-let Nf = tt(Cf), Mn = Object.assign(Nf, { features: Fc });
+let Nf = tt(Cf), Hn = Object.assign(Nf, { features: Fc });
 function Rf(e = !0) {
   let t = de(Ir.slice());
   return _s(([r], [n]) => {
@@ -1623,7 +1627,7 @@ function us(e) {
   return ie.createElement(Lc.Provider, { value: e.force }, e.children);
 }
 function Mf(e) {
-  let t = Hf(), r = yt(Hc), n = Rn(e), [i, o] = Pe(() => {
+  let t = Hf(), r = yt(Hc), n = Nn(e), [i, o] = Pe(() => {
     if (!t && r !== null || ur.isServer) return null;
     let s = n == null ? void 0 : n.getElementById("headlessui-portal-root");
     if (s) return s;
@@ -1641,10 +1645,10 @@ let Df = mt;
 function $f(e, t) {
   let r = e, n = de(null), i = ht(Ef((f) => {
     n.current = f;
-  }), t), o = Rn(n), s = Mf(n), [a] = Pe(() => {
+  }), t), o = Nn(n), s = Mf(n), [a] = Pe(() => {
     var f;
     return ur.isServer ? null : (f = o == null ? void 0 : o.createElement("div")) != null ? f : null;
-  }), l = yt(ls), p = Nn();
+  }), l = yt(ls), p = Cn();
   return qe(() => {
     !s || !a || s.contains(a) || (a.setAttribute("data-headlessui-portal", ""), s.appendChild(a));
   }, [s, a]), qe(() => {
@@ -1799,7 +1803,7 @@ function f0(e, t, r) {
     if (!(!e || !t)) return Vr.dispatch("PUSH", e, r), () => Vr.dispatch("POP", e, r);
   }, [t, e]), o;
 }
-let Oo = /* @__PURE__ */ new Map(), Dn = /* @__PURE__ */ new Map();
+let Oo = /* @__PURE__ */ new Map(), Mn = /* @__PURE__ */ new Map();
 function ma(e, t = !0) {
   qe(() => {
     var r;
@@ -1809,18 +1813,18 @@ function ma(e, t = !0) {
     function i() {
       var s;
       if (!n) return;
-      let a = (s = Dn.get(n)) != null ? s : 1;
-      if (a === 1 ? Dn.delete(n) : Dn.set(n, a - 1), a !== 1) return;
+      let a = (s = Mn.get(n)) != null ? s : 1;
+      if (a === 1 ? Mn.delete(n) : Mn.set(n, a - 1), a !== 1) return;
       let l = Oo.get(n);
       l && (l["aria-hidden"] === null ? n.removeAttribute("aria-hidden") : n.setAttribute("aria-hidden", l["aria-hidden"]), n.inert = l.inert, Oo.delete(n));
     }
-    let o = (r = Dn.get(n)) != null ? r : 0;
-    return Dn.set(n, o + 1), o !== 0 || (Oo.set(n, { "aria-hidden": n.getAttribute("aria-hidden"), inert: n.inert }), n.setAttribute("aria-hidden", "true"), n.inert = !0), i;
+    let o = (r = Mn.get(n)) != null ? r : 0;
+    return Mn.set(n, o + 1), o !== 0 || (Oo.set(n, { "aria-hidden": n.getAttribute("aria-hidden"), inert: n.inert }), n.setAttribute("aria-hidden", "true"), n.inert = !0), i;
   }, [e, t]);
 }
 function h0({ defaultContainers: e = [], portals: t, mainTreeNodeRef: r } = {}) {
   var n;
-  let i = de((n = r == null ? void 0 : r.current) != null ? n : null), o = Rn(i), s = ce(() => {
+  let i = de((n = r == null ? void 0 : r.current) != null ? n : null), o = Nn(i), s = ce(() => {
     var a, l, p;
     let f = [];
     for (let d of e) d !== null && (d instanceof HTMLElement ? f.push(d) : "current" in d && d.current instanceof HTMLElement && f.push(d.current));
@@ -1899,7 +1903,7 @@ function S0(e, t, r = () => [document.body]) {
 function v0(e, t) {
   return Xe(t.type, b0, e, t);
 }
-let T0 = "div", _0 = xn.RenderStrategy | xn.Static;
+let T0 = "div", _0 = kn.RenderStrategy | kn.Static;
 function I0(e, t) {
   let r = wr(), { id: n = `headlessui-dialog-${r}`, open: i, onClose: o, initialFocus: s, role: a = "dialog", __demoMode: l = !1, ...p } = e, [f, d] = Pe(0), S = de(!1);
   a = function() {
@@ -1907,13 +1911,13 @@ function I0(e, t) {
   }();
   let m = Yi();
   i === void 0 && m !== null && (i = (m & et.Open) === et.Open);
-  let B = de(null), O = ht(B, t), x = Rn(B), $ = e.hasOwnProperty("open") || m !== null, A = e.hasOwnProperty("onClose");
+  let B = de(null), O = ht(B, t), x = Nn(B), $ = e.hasOwnProperty("open") || m !== null, A = e.hasOwnProperty("onClose");
   if (!$ && !A) throw new Error("You have to provide an `open` and an `onClose` prop to the `Dialog` component.");
   if (!$) throw new Error("You provided an `onClose` prop to the `Dialog`, but forgot an `open` prop.");
   if (!A) throw new Error("You provided an `open` prop to the `Dialog`, but forgot an `onClose` prop.");
   if (typeof i != "boolean") throw new Error(`You provided an \`open\` prop to the \`Dialog\`, but the value is not a boolean. Received: ${i}`);
   if (typeof o != "function") throw new Error(`You provided an \`onClose\` prop to the \`Dialog\`, but the value is not a function. Received: ${o}`);
-  let k = i ? 0 : 1, [C, M] = lc(v0, { titleId: null, descriptionId: null, panelRef: ns() }), F = ce(() => o(!1)), W = ce((re) => M({ type: 0, id: re })), g = Nn() ? l ? !1 : k === 0 : !1, h = f > 1, E = yt(Hi) !== null, [N, y] = Wf(), P = { get current() {
+  let k = i ? 0 : 1, [C, M] = lc(v0, { titleId: null, descriptionId: null, panelRef: ns() }), F = ce(() => o(!1)), W = ce((re) => M({ type: 0, id: re })), g = Cn() ? l ? !1 : k === 0 : !1, h = f > 1, E = yt(Hi) !== null, [N, y] = Wf(), P = { get current() {
     var re;
     return (re = C.panelRef.current) != null ? re : B.current;
   } }, { resolveContainers: I, mainTreeNodeRef: v, MainTreeNode: T } = h0({ portals: N, defaultContainers: [P] }), U = h ? "parent" : "leaf", L = m !== null ? (m & et.Closing) === et.Closing : !1, j = E || L ? !1 : g, G = it(() => {
@@ -1944,7 +1948,7 @@ function I0(e, t) {
   let [ae, ve] = g0(), pt = De(() => [{ dialogState: k, close: F, setTitleId: W }, C], [k, C, F, W]), At = De(() => ({ open: k === 0 }), [k]), Et = { ref: O, id: n, role: a, "aria-modal": k === 0 ? !0 : void 0, "aria-labelledby": C.titleId, "aria-describedby": ae };
   return ie.createElement(p0, { type: "Dialog", enabled: k === 0, element: B, onUpdate: ce((re, Ne) => {
     Ne === "Dialog" && Xe(re, { [hs.Add]: () => d((ge) => ge + 1), [hs.Remove]: () => d((ge) => ge - 1) });
-  }) }, ie.createElement(us, { force: !0 }, ie.createElement(fs, null, ie.createElement(Hi.Provider, { value: pt }, ie.createElement(fs.Group, { target: B }, ie.createElement(us, { force: !1 }, ie.createElement(ve, { slot: At, name: "Dialog.Description" }, ie.createElement(Mn, { initialFocus: s, containers: I, features: g ? Xe(U, { parent: Mn.features.RestoreFocus, leaf: Mn.features.All & ~Mn.features.FocusLock }) : Mn.features.None }, ie.createElement(y, null, ot({ ourProps: Et, theirProps: p, slot: At, defaultTag: T0, features: _0, visible: k === 0, name: "Dialog" }))))))))), ie.createElement(T, null));
+  }) }, ie.createElement(us, { force: !0 }, ie.createElement(fs, null, ie.createElement(Hi.Provider, { value: pt }, ie.createElement(fs.Group, { target: B }, ie.createElement(us, { force: !1 }, ie.createElement(ve, { slot: At, name: "Dialog.Description" }, ie.createElement(Hn, { initialFocus: s, containers: I, features: g ? Xe(U, { parent: Hn.features.RestoreFocus, leaf: Hn.features.All & ~Hn.features.FocusLock }) : Hn.features.None }, ie.createElement(y, null, ot({ ourProps: Et, theirProps: p, slot: At, defaultTag: T0, features: _0, visible: k === 0, name: "Dialog" }))))))))), ie.createElement(T, null));
 }
 let O0 = "div";
 function k0(e, t) {
@@ -2101,10 +2105,10 @@ function z0(e, t) {
   }), m = De(() => ({ open: s.menuState === 0 }), [s]), B = { ref: l, id: i, type: Af(e, s.buttonRef), "aria-haspopup": "menu", "aria-controls": (r = s.itemsRef.current) == null ? void 0 : r.id, "aria-expanded": s.menuState === 0, onKeyDown: f, onKeyUp: d, onClick: S };
   return ot({ ourProps: B, theirProps: o, slot: m, defaultTag: Q0, name: "Menu.Button" });
 }
-let J0 = "div", Z0 = xn.RenderStrategy | xn.Static;
+let J0 = "div", Z0 = kn.RenderStrategy | kn.Static;
 function eh(e, t) {
   var r, n;
-  let i = wr(), { id: o = `headlessui-menu-items-${i}`, ...s } = e, [a, l] = Qi("Menu.Items"), p = ht(a.itemsRef, t), f = Rn(a.itemsRef), d = oi(), S = Yi(), m = S !== null ? (S & et.Open) === et.Open : a.menuState === 0;
+  let i = wr(), { id: o = `headlessui-menu-items-${i}`, ...s } = e, [a, l] = Qi("Menu.Items"), p = ht(a.itemsRef, t), f = Nn(a.itemsRef), d = oi(), S = Yi(), m = S !== null ? (S & et.Open) === et.Open : a.menuState === 0;
   Se(() => {
     let A = a.itemsRef.current;
     A && a.menuState === 0 && A !== (f == null ? void 0 : f.activeElement) && A.focus({ preventScroll: !0 });
@@ -2321,7 +2325,7 @@ function mh(e) {
     t.current = Ea(e);
   }, [e]), t;
 }
-let yh = "div", jc = xn.RenderStrategy;
+let yh = "div", jc = kn.RenderStrategy;
 function Ah(e, t) {
   var r, n;
   let { beforeEnter: i, afterEnter: o, beforeLeave: s, afterLeave: a, enter: l, enterFrom: p, enterTo: f, entered: d, leave: S, leaveFrom: m, leaveTo: B, ...O } = e, x = de(null), $ = ht(x, t), A = (r = O.unmount) == null || r ? Or.Unmount : Or.Hidden, { show: k, appear: C, initial: M } = dh(), [F, W] = Pe(k ? "visible" : "hidden"), g = ph(), { register: h, unregister: E } = g;
@@ -2334,7 +2338,7 @@ function Ah(e, t) {
       return Xe(F, { hidden: () => E(x), visible: () => h(x) });
     }
   }, [F, x, h, E, k, A]);
-  let N = lr({ base: yr(O.className), enter: yr(l), enterFrom: yr(p), enterTo: yr(f), entered: yr(d), leave: yr(S), leaveFrom: yr(m), leaveTo: yr(B) }), y = mh({ beforeEnter: i, afterEnter: o, beforeLeave: s, afterLeave: a }), P = Nn();
+  let N = lr({ base: yr(O.className), enter: yr(l), enterFrom: yr(p), enterTo: yr(f), entered: yr(d), leave: yr(S), leaveFrom: yr(m), leaveTo: yr(B) }), y = mh({ beforeEnter: i, afterEnter: o, beforeLeave: s, afterLeave: a }), P = Cn();
   Se(() => {
     if (P && F === "visible" && x.current === null) throw new Error("Did you forget to passthrough the `ref` to the actual DOM node?");
   }, [x, F, P]);
@@ -2361,7 +2365,7 @@ function Ah(e, t) {
 }
 function Eh(e, t) {
   let { show: r, appear: n = !1, unmount: i = !0, ...o } = e, s = de(null), a = ht(s, t);
-  Nn();
+  Cn();
   let l = Yi();
   if (r === void 0 && l !== null && (r = (l & et.Open) === et.Open), ![!0, !1].includes(r)) throw new Error("A <Transition /> is used but it is missing a `show={true | false}` prop.");
   let [p, f] = Pe(r ? "visible" : "hidden"), d = $c(() => {
@@ -2409,9 +2413,9 @@ const Th = {
   [ee.LEATHER]: Wc,
   [ee.OKX]: Gc
 }, _h = {
-  [_n.MAINNET]: "Mainnet",
-  [_n.TESTNET]: "Testnet",
-  [_n.SIGNET]: "Signet"
+  [Zn.MAINNET]: "Mainnet",
+  [Zn.TESTNET]: "Testnet",
+  [Zn.SIGNET]: "Signet"
 };
 function Ih({
   address: e,
@@ -2589,8 +2593,8 @@ const Bh = {
       };
     }
     case ee.XVERSE: {
-      const i = await $l(e === _n.TESTNET ? "testnet4" : e);
-      if (!i || i.length < 1)
+      const i = await $l(e);
+      if (console.log("xverse1", i), !i || i.length < 1)
         throw new Error("Xverse via Ordit returned no addresses");
       const o = i.find(
         (a) => a.format === "p2sh-p2wpkh" || a.format === "segwit"
@@ -2604,7 +2608,7 @@ const Bh = {
       );
       if (!s)
         throw new Error("Xverse via Ordit did not return a Taproot address");
-      return {
+      return console.log("xverse2", s, o), {
         address: {
           ordinals: s.address,
           payments: o.address
@@ -2748,8 +2752,10 @@ function Nh({
     }
   };
   return Se(() => {
-    if (d !== ee.UNISAT)
+    if (d !== ee.UNISAT) {
+      console.log("connectedWallet", d);
       return;
+    }
     let O = !0, x = !1;
     const $ = () => B(ee.UNISAT);
     return l && p && f && (async () => {
@@ -2858,7 +2864,7 @@ function Mh({
         wallet: ee.OKX,
         onConnect: () => l(ee.OKX),
         icon: Gc,
-        hidden: d && p !== _n.MAINNET,
+        hidden: d && p !== Zn.MAINNET,
         order: 20,
         chains: [qt.BITCOIN]
       },
@@ -4132,7 +4138,7 @@ Bs.write = function(e, t, r, n, i, o) {
           return u;
         case "utf8":
         case "utf-8":
-          return Fn(w).length;
+          return Rn(w).length;
         case "ucs2":
         case "ucs-2":
         case "utf16le":
@@ -4144,7 +4150,7 @@ Bs.write = function(e, t, r, n, i, o) {
           return di(w).length;
         default:
           if (R)
-            return b ? -1 : Fn(w).length;
+            return b ? -1 : Rn(w).length;
           c = ("" + c).toLowerCase(), R = !0;
       }
   }
@@ -4302,7 +4308,7 @@ Bs.write = function(e, t, r, n, i, o) {
     return K;
   }
   function y(w, c, u, b) {
-    return dn(Fn(c, w.length - u), w, u, b);
+    return dn(Rn(c, w.length - u), w, u, b);
   }
   function P(w, c, u, b) {
     return dn(Po(c), w, u, b);
@@ -4311,7 +4317,7 @@ Bs.write = function(e, t, r, n, i, o) {
     return dn(di(c), w, u, b);
   }
   function v(w, c, u, b) {
-    return dn(Un(c, w.length - u), w, u, b);
+    return dn(Fn(c, w.length - u), w, u, b);
   }
   f.prototype.write = function(c, u, b, R) {
     if (u === void 0)
@@ -4750,7 +4756,7 @@ Bs.write = function(e, t, r, n, i, o) {
       w = w + "=";
     return w;
   }
-  function Fn(w, c) {
+  function Rn(w, c) {
     c = c || 1 / 0;
     let u;
     const b = w.length;
@@ -4810,7 +4816,7 @@ Bs.write = function(e, t, r, n, i, o) {
       c.push(w.charCodeAt(u) & 255);
     return c;
   }
-  function Un(w, c) {
+  function Fn(w, c) {
     let u, b, R;
     const D = [];
     for (let K = 0; K < w.length && !((c -= 2) < 0); ++K)
@@ -5152,9 +5158,9 @@ function md(e, t) {
   };
 }
 Cr.decode = md;
-var Bn = {};
-Object.defineProperty(Bn, "__esModule", { value: !0 });
-Bn.encode = Bn.decode = void 0;
+var xn = {};
+Object.defineProperty(xn, "__esModule", { value: !0 });
+xn.encode = xn.decode = void 0;
 function yd(e, t, r) {
   t = t || 4, r = r === void 0 ? !0 : r;
   const n = e.length;
@@ -5171,7 +5177,7 @@ function yd(e, t, r) {
     i |= e[o] << 8 * o;
   return e[n - 1] & 128 ? -(i & ~(128 << 8 * (n - 1))) : i;
 }
-Bn.decode = yd;
+xn.decode = yd;
 function Ad(e) {
   return e > 2147483647 ? 5 : e > 8388607 ? 4 : e > 32767 ? 3 : e > 127 ? 2 : e > 0 ? 1 : 0;
 }
@@ -5182,7 +5188,7 @@ function Ed(e) {
     n.writeUInt8(t & 255, o), t >>= 8;
   return n[r - 1] & 128 ? n.writeUInt8(i ? 128 : 0, r - 1) : i && (n[r - 1] |= 128), n;
 }
-Bn.encode = Ed;
+xn.encode = Ed;
 var $r = {}, rt = {};
 const ro = /* @__PURE__ */ zl(hd);
 var ni = {
@@ -5245,22 +5251,22 @@ function bd(e, t, r, n, i) {
   var o = '" of type ';
   return t === "key" && (o = '" with key type '), ru('property "' + Mi(r) + o + Mi(e), n, i);
 }
-function In(e, t, r, n, i) {
+function _n(e, t, r, n, i) {
   e ? (i = i || Ns(n), this.message = bd(e, r, t, n, i)) : this.message = 'Unexpected property "' + t + '"', Rs(this, dr), this.__label = r, this.__property = t, this.__type = e, this.__value = n, this.__valueTypeName = i;
 }
-In.prototype = Object.create(Error.prototype);
-In.prototype.constructor = dr;
+_n.prototype = Object.create(Error.prototype);
+_n.prototype.constructor = dr;
 function Sd(e, t) {
   return new dr(e, {}, t);
 }
 function vd(e, t, r) {
-  return e instanceof In ? (t = t + "." + e.__property, e = new In(
+  return e instanceof _n ? (t = t + "." + e.__property, e = new _n(
     e.__type,
     t,
     e.__label,
     e.__value,
     e.__valueTypeName
-  )) : e instanceof dr && (e = new In(
+  )) : e instanceof dr && (e = new _n(
     e.__type,
     t,
     r,
@@ -5270,7 +5276,7 @@ function vd(e, t, r) {
 }
 var nu = {
   TfTypeError: dr,
-  TfPropertyTypeError: In,
+  TfPropertyTypeError: _n,
   tfCustomError: Sd,
   tfSubError: vd,
   tfJSON: Mi,
@@ -5359,7 +5365,7 @@ function Td() {
     }).bind(null, M);
   return Mo = C, Mo;
 }
-var ci = nu, Ze = Cs, tr = ci.tfJSON, iu = ci.TfTypeError, ou = ci.TfPropertyTypeError, $n = ci.tfSubError, _d = ci.getValueTypeName, ar = {
+var ci = nu, Ze = Cs, tr = ci.tfJSON, iu = ci.TfTypeError, ou = ci.TfPropertyTypeError, Dn = ci.tfSubError, _d = ci.getValueTypeName, ar = {
   arrayOf: function(t, r) {
     t = Vt(t), r = r || {};
     function n(i, o) {
@@ -5367,7 +5373,7 @@ var ci = nu, Ze = Cs, tr = ci.tfJSON, iu = ci.TfTypeError, ou = ci.TfPropertyTyp
         try {
           return ft(t, s, o);
         } catch (l) {
-          throw $n(l, a);
+          throw Dn(l, a);
         }
       });
     }
@@ -5393,13 +5399,13 @@ var ci = nu, Ze = Cs, tr = ci.tfJSON, iu = ci.TfTypeError, ou = ci.TfPropertyTyp
         try {
           r && ft(r, s, o);
         } catch (l) {
-          throw $n(l, s, "key");
+          throw Dn(l, s, "key");
         }
         try {
           var a = i[s];
           ft(t, a, o);
         } catch (l) {
-          throw $n(l, s);
+          throw Dn(l, s);
         }
       }
       return !0;
@@ -5423,7 +5429,7 @@ var ci = nu, Ze = Cs, tr = ci.tfJSON, iu = ci.TfTypeError, ou = ci.TfPropertyTyp
           ft(l, p, s);
         }
       } catch (f) {
-        throw $n(f, a);
+        throw Dn(f, a);
       }
       if (s) {
         for (a in o)
@@ -5481,7 +5487,7 @@ var ci = nu, Ze = Cs, tr = ci.tfJSON, iu = ci.TfTypeError, ou = ci.TfPropertyTyp
         try {
           return ft(o, n[s], i);
         } catch (a) {
-          throw $n(a, s);
+          throw Dn(a, s);
         }
       });
     }
@@ -5616,7 +5622,7 @@ function dt() {
         return r.OPS;
       }
     });
-    const n = Cr, i = Bn, o = Od(), s = rt, { typeforce: a } = s, l = r.OPS.OP_RESERVED;
+    const n = Cr, i = xn, o = Od(), s = rt, { typeforce: a } = s, l = r.OPS.OP_RESERVED;
     function p(h) {
       return s.Number(h) && (h === r.OPS.OP_0 || h >= r.OPS.OP_1 && h <= r.OPS.OP_16 || h === r.OPS.OP_1NEGATE);
     }
@@ -5941,7 +5947,7 @@ function Ud(e, t) {
   return Object.assign(i, e);
 }
 io.p2pk = Ud;
-var oo = {}, Jt = {}, Cn = {}, Qt = {}, Ge = {};
+var oo = {}, Jt = {}, Bn = {}, Qt = {}, Ge = {};
 Object.defineProperty(Ge, "__esModule", { value: !0 });
 Ge.output = Ge.exists = Ge.hash = Ge.bytes = Ge.bool = Ge.number = Ge.isBytes = void 0;
 function Di(e) {
@@ -6126,7 +6132,7 @@ so.crypto = typeof globalThis == "object" && "crypto" in globalThis ? globalThis
 })(ui);
 Object.defineProperty(Qt, "__esModule", { value: !0 });
 Qt.HashMD = Qt.Maj = Qt.Chi = void 0;
-const Do = Ge, jn = ui;
+const Do = Ge, $n = ui;
 function Hd(e, t, r, n) {
   if (typeof e.setBigUint64 == "function")
     return e.setBigUint64(t, r, n);
@@ -6137,19 +6143,19 @@ const Md = (e, t, r) => e & t ^ ~e & r;
 Qt.Chi = Md;
 const Dd = (e, t, r) => e & t ^ e & r ^ t & r;
 Qt.Maj = Dd;
-class $d extends jn.Hash {
+class $d extends $n.Hash {
   constructor(t, r, n, i) {
-    super(), this.blockLen = t, this.outputLen = r, this.padOffset = n, this.isLE = i, this.finished = !1, this.length = 0, this.pos = 0, this.destroyed = !1, this.buffer = new Uint8Array(t), this.view = (0, jn.createView)(this.buffer);
+    super(), this.blockLen = t, this.outputLen = r, this.padOffset = n, this.isLE = i, this.finished = !1, this.length = 0, this.pos = 0, this.destroyed = !1, this.buffer = new Uint8Array(t), this.view = (0, $n.createView)(this.buffer);
   }
   update(t) {
     (0, Do.exists)(this);
     const { view: r, buffer: n, blockLen: i } = this;
-    t = (0, jn.toBytes)(t);
+    t = (0, $n.toBytes)(t);
     const o = t.length;
     for (let s = 0; s < o; ) {
       const a = Math.min(i - this.pos, o - s);
       if (a === i) {
-        const l = (0, jn.createView)(t);
+        const l = (0, $n.createView)(t);
         for (; i <= o - s; s += i)
           this.process(l, s);
         continue;
@@ -6166,7 +6172,7 @@ class $d extends jn.Hash {
     for (let d = s; d < i; d++)
       r[d] = 0;
     Hd(n, i - 8, BigInt(this.length * 8), o), this.process(n, 0);
-    const a = (0, jn.createView)(t), l = this.outputLen;
+    const a = (0, $n.createView)(t), l = this.outputLen;
     if (l % 4)
       throw new Error("_sha2: outputLen should be aligned to 32bit");
     const p = l / 4, f = this.get();
@@ -6188,9 +6194,9 @@ class $d extends jn.Hash {
   }
 }
 Qt.HashMD = $d;
-Object.defineProperty(Cn, "__esModule", { value: !0 });
-Cn.ripemd160 = Cn.RIPEMD160 = void 0;
-const jd = Qt, Yn = ui, Kd = /* @__PURE__ */ new Uint8Array([7, 4, 13, 1, 10, 6, 15, 3, 12, 0, 9, 5, 2, 14, 11, 8]), fu = /* @__PURE__ */ new Uint8Array(new Array(16).fill(0).map((e, t) => t)), Wd = /* @__PURE__ */ fu.map((e) => (9 * e + 5) % 16);
+Object.defineProperty(Bn, "__esModule", { value: !0 });
+Bn.ripemd160 = Bn.RIPEMD160 = void 0;
+const jd = Qt, qn = ui, Kd = /* @__PURE__ */ new Uint8Array([7, 4, 13, 1, 10, 6, 15, 3, 12, 0, 9, 5, 2, 14, 11, 8]), fu = /* @__PURE__ */ new Uint8Array(new Array(16).fill(0).map((e, t) => t)), Wd = /* @__PURE__ */ fu.map((e) => (9 * e + 5) % 16);
 let Us = [fu], Ls = [Wd];
 for (let e = 0; e < 4; e++)
   for (let t of [Us, Ls])
@@ -6236,12 +6242,12 @@ class du extends jd.HashMD {
     for (let m = 0; m < 5; m++) {
       const B = 4 - m, O = Xd[m], x = qd[m], $ = Us[m], A = Ls[m], k = Vd[m], C = Gd[m];
       for (let M = 0; M < 16; M++) {
-        const F = (0, Yn.rotl)(n + Ba(m, o, a, p) + Pi[$[M]] + O, k[M]) + d | 0;
-        n = d, d = p, p = (0, Yn.rotl)(a, 10) | 0, a = o, o = F;
+        const F = (0, qn.rotl)(n + Ba(m, o, a, p) + Pi[$[M]] + O, k[M]) + d | 0;
+        n = d, d = p, p = (0, qn.rotl)(a, 10) | 0, a = o, o = F;
       }
       for (let M = 0; M < 16; M++) {
-        const F = (0, Yn.rotl)(i + Ba(B, s, l, f) + Pi[A[M]] + x, C[M]) + S | 0;
-        i = S, S = f, f = (0, Yn.rotl)(l, 10) | 0, l = s, s = F;
+        const F = (0, qn.rotl)(i + Ba(B, s, l, f) + Pi[A[M]] + x, C[M]) + S | 0;
+        i = S, S = f, f = (0, qn.rotl)(l, 10) | 0, l = s, s = F;
       }
     }
     this.set(this.h1 + a + f | 0, this.h2 + p + S | 0, this.h3 + d + i | 0, this.h4 + n + s | 0, this.h0 + o + l | 0);
@@ -6253,12 +6259,12 @@ class du extends jd.HashMD {
     this.destroyed = !0, this.buffer.fill(0), this.set(0, 0, 0, 0, 0);
   }
 }
-Cn.RIPEMD160 = du;
-Cn.ripemd160 = (0, Yn.wrapConstructor)(() => new du());
+Bn.RIPEMD160 = du;
+Bn.ripemd160 = (0, qn.wrapConstructor)(() => new du());
 var ao = {};
 Object.defineProperty(ao, "__esModule", { value: !0 });
 ao.sha1 = void 0;
-const $o = Qt, Ci = ui, Kn = /* @__PURE__ */ new Uint32Array([
+const $o = Qt, Ci = ui, jn = /* @__PURE__ */ new Uint32Array([
   1732584193,
   4023233417,
   2562383102,
@@ -6267,7 +6273,7 @@ const $o = Qt, Ci = ui, Kn = /* @__PURE__ */ new Uint32Array([
 ]), Pr = /* @__PURE__ */ new Uint32Array(80);
 class Yd extends $o.HashMD {
   constructor() {
-    super(64, 20, 8, !1), this.A = Kn[0] | 0, this.B = Kn[1] | 0, this.C = Kn[2] | 0, this.D = Kn[3] | 0, this.E = Kn[4] | 0;
+    super(64, 20, 8, !1), this.A = jn[0] | 0, this.B = jn[1] | 0, this.C = jn[2] | 0, this.D = jn[3] | 0, this.E = jn[4] | 0;
   }
   get() {
     const { A: t, B: r, C: n, D: i, E: o } = this;
@@ -6418,7 +6424,7 @@ qr.sha256 = (0, xt.wrapConstructor)(() => new pu());
 qr.sha224 = (0, xt.wrapConstructor)(() => new zd());
 (function(e) {
   Object.defineProperty(e, "__esModule", { value: !0 }), e.taggedHash = e.TAGGED_HASH_PREFIXES = e.TAGS = e.hash256 = e.hash160 = e.sha256 = e.sha1 = e.ripemd160 = void 0;
-  const t = Cn, r = ao, n = qr;
+  const t = Bn, r = ao, n = qr;
   function i(f) {
     return H.from((0, t.ripemd160)(Uint8Array.from(f)));
   }
@@ -7252,7 +7258,7 @@ oo.p2pkh = ap;
 var co = {};
 Object.defineProperty(co, "__esModule", { value: !0 });
 co.p2sh = void 0;
-const Ra = Jt, cp = Ye, Kt = dt(), _e = rt, $t = St, Fa = Hs, Wn = Kt.OPS;
+const Ra = Jt, cp = Ye, Kt = dt(), _e = rt, $t = St, Fa = Hs, Kn = Kt.OPS;
 function up(e, t) {
   if (!e.address && !e.hash && !e.output && !e.redeem && !e.input)
     throw new TypeError("Not enough data");
@@ -7286,7 +7292,7 @@ function up(e, t) {
     const a = o(), l = a[a.length - 1];
     return {
       network: r,
-      output: l === Wn.OP_FALSE ? H.from([]) : l,
+      output: l === Kn.OP_FALSE ? H.from([]) : l,
       input: Kt.compile(a.slice(0, -1)),
       witness: e.witness || []
     };
@@ -7301,7 +7307,7 @@ function up(e, t) {
     if (n.redeem && n.redeem.output) return Ra.hash160(n.redeem.output);
   }), $t.prop(n, "output", () => {
     if (n.hash)
-      return Kt.compile([Wn.OP_HASH160, n.hash, Wn.OP_EQUAL]);
+      return Kt.compile([Kn.OP_HASH160, n.hash, Kn.OP_EQUAL]);
   }), $t.prop(n, "redeem", () => {
     if (e.input)
       return s();
@@ -7330,7 +7336,7 @@ function up(e, t) {
       a = e.hash;
     }
     if (e.output) {
-      if (e.output.length !== 23 || e.output[0] !== Wn.OP_HASH160 || e.output[1] !== 20 || e.output[22] !== Wn.OP_EQUAL)
+      if (e.output.length !== 23 || e.output[0] !== Kn.OP_HASH160 || e.output[1] !== 20 || e.output[22] !== Kn.OP_EQUAL)
         throw new TypeError("Output is invalid");
       const p = e.output.slice(2, 22);
       if (a.length > 0 && !a.equals(p))
@@ -7400,7 +7406,7 @@ for (let e = 0; e < $i.length; e++) {
   const t = $i.charAt(e);
   gu[t] = e;
 }
-function On(e) {
+function In(e) {
   const t = e >> 25;
   return (e & 33554431) << 5 ^ -(t >> 0 & 1) & 996825010 ^ -(t >> 1 & 1) & 642813549 ^ -(t >> 2 & 1) & 513874426 ^ -(t >> 3 & 1) & 1027748829 ^ -(t >> 4 & 1) & 705979059;
 }
@@ -7410,12 +7416,12 @@ function Ua(e) {
     const n = e.charCodeAt(r);
     if (n < 33 || n > 126)
       return "Invalid prefix (" + e + ")";
-    t = On(t) ^ n >> 5;
+    t = In(t) ^ n >> 5;
   }
-  t = On(t);
+  t = In(t);
   for (let r = 0; r < e.length; ++r) {
     const n = e.charCodeAt(r);
-    t = On(t) ^ n & 31;
+    t = In(t) ^ n & 31;
   }
   return t;
 }
@@ -7464,10 +7470,10 @@ function wu(e) {
       const S = a[d];
       if (S >> 5)
         throw new Error("Non 5-bit word");
-      p = On(p) ^ S, f += $i.charAt(S);
+      p = In(p) ^ S, f += $i.charAt(S);
     }
     for (let d = 0; d < 6; ++d)
-      p = On(p);
+      p = In(p);
     p ^= t;
     for (let d = 0; d < 6; ++d) {
       const S = p >> (5 - d) * 5 & 31;
@@ -7500,7 +7506,7 @@ function wu(e) {
       const x = S.charAt(O), $ = gu[x];
       if ($ === void 0)
         return "Unknown character " + x;
-      m = On(m) ^ $, !(O + 6 >= S.length) && B.push($);
+      m = In(m) ^ $, !(O + 6 >= S.length) && B.push($);
     }
     return m !== t ? "Invalid checksum for " + s : { prefix: d, words: B };
   }
@@ -7768,7 +7774,7 @@ function mp(e, t) {
   return Object.assign(o, e);
 }
 lo.p2wsh = mp;
-var Vn = {}, Fr = {};
+var Wn = {}, Fr = {};
 Object.defineProperty(Fr, "__esModule", { value: !0 });
 Fr.getEccLib = Fr.initEccLib = void 0;
 const ti = {};
@@ -7873,28 +7879,28 @@ var bp = ws.exports, ms = bp.Buffer, Sp = 9007199254740991;
 function Ds(e) {
   if (e < 0 || e > Sp || e % 1 !== 0) throw new RangeError("value out of range");
 }
-function Qn(e, t, r) {
+function Yn(e, t, r) {
   if (Ds(e), t || (t = ms.allocUnsafe(mu(e))), !ms.isBuffer(t)) throw new TypeError("buffer must be a Buffer instance");
-  return r || (r = 0), e < 253 ? (t.writeUInt8(e, r), Qn.bytes = 1) : e <= 65535 ? (t.writeUInt8(253, r), t.writeUInt16LE(e, r + 1), Qn.bytes = 3) : e <= 4294967295 ? (t.writeUInt8(254, r), t.writeUInt32LE(e, r + 1), Qn.bytes = 5) : (t.writeUInt8(255, r), t.writeUInt32LE(e >>> 0, r + 1), t.writeUInt32LE(e / 4294967296 | 0, r + 5), Qn.bytes = 9), t;
+  return r || (r = 0), e < 253 ? (t.writeUInt8(e, r), Yn.bytes = 1) : e <= 65535 ? (t.writeUInt8(253, r), t.writeUInt16LE(e, r + 1), Yn.bytes = 3) : e <= 4294967295 ? (t.writeUInt8(254, r), t.writeUInt32LE(e, r + 1), Yn.bytes = 5) : (t.writeUInt8(255, r), t.writeUInt32LE(e >>> 0, r + 1), t.writeUInt32LE(e / 4294967296 | 0, r + 5), Yn.bytes = 9), t;
 }
-function zn(e, t) {
+function Qn(e, t) {
   if (!ms.isBuffer(e)) throw new TypeError("buffer must be a Buffer instance");
   t || (t = 0);
   var r = e.readUInt8(t);
   if (r < 253)
-    return zn.bytes = 1, r;
+    return Qn.bytes = 1, r;
   if (r === 253)
-    return zn.bytes = 3, e.readUInt16LE(t + 1);
+    return Qn.bytes = 3, e.readUInt16LE(t + 1);
   if (r === 254)
-    return zn.bytes = 5, e.readUInt32LE(t + 1);
-  zn.bytes = 9;
+    return Qn.bytes = 5, e.readUInt32LE(t + 1);
+  Qn.bytes = 9;
   var n = e.readUInt32LE(t + 1), i = e.readUInt32LE(t + 5), o = i * 4294967296 + n;
   return Ds(o), o;
 }
 function mu(e) {
   return Ds(e), e < 253 ? 1 : e <= 65535 ? 3 : e <= 4294967295 ? 5 : 9;
 }
-var vp = { encode: Qn, decode: zn, encodingLength: mu };
+var vp = { encode: Yn, decode: Qn, encodingLength: mu };
 Object.defineProperty(je, "__esModule", { value: !0 });
 je.BufferReader = je.BufferWriter = je.cloneBuffer = je.reverseBuffer = je.writeUInt64LE = je.readUInt64LE = je.varuint = void 0;
 const Xr = rt, { typeforce: yu } = Xr, ii = vp;
@@ -8090,8 +8096,8 @@ je.BufferReader = Ip;
 })(fo);
 var Da;
 function Op() {
-  if (Da) return Vn;
-  Da = 1, Object.defineProperty(Vn, "__esModule", { value: !0 }), Vn.p2tr = void 0;
+  if (Da) return Wn;
+  Da = 1, Object.defineProperty(Wn, "__esModule", { value: !0 }), Wn.p2tr = void 0;
   const e = ro, t = Ye, r = dt(), n = rt, i = Fr, o = fo, s = St, a = pr, l = js(), p = r.OPS, f = 1, d = 80;
   function S(m, B) {
     if (!m.address && !m.output && !m.pubkey && !m.internalPubkey && !(m.witness && m.witness.length > 1))
@@ -8291,7 +8297,7 @@ function Op() {
     }
     return Object.assign(k, m);
   }
-  return Vn.p2tr = S, Vn;
+  return Wn.p2tr = S, Wn;
 }
 var $a;
 function li() {
@@ -9340,30 +9346,30 @@ function Xs(e) {
   if (e < 0 || e > B1 || e % 1 !== 0)
     throw new RangeError("value out of range");
 }
-function Jn(e, t, r) {
+function zn(e, t, r) {
   if (Xs(e), t || (t = H.allocUnsafe(Uu(e))), !H.isBuffer(t))
     throw new TypeError("buffer must be a Buffer instance");
-  return r || (r = 0), e < 253 ? (t.writeUInt8(e, r), Object.assign(Jn, { bytes: 1 })) : e <= 65535 ? (t.writeUInt8(253, r), t.writeUInt16LE(e, r + 1), Object.assign(Jn, { bytes: 3 })) : e <= 4294967295 ? (t.writeUInt8(254, r), t.writeUInt32LE(e, r + 1), Object.assign(Jn, { bytes: 5 })) : (t.writeUInt8(255, r), t.writeUInt32LE(e >>> 0, r + 1), t.writeUInt32LE(e / 4294967296 | 0, r + 5), Object.assign(Jn, { bytes: 9 })), t;
+  return r || (r = 0), e < 253 ? (t.writeUInt8(e, r), Object.assign(zn, { bytes: 1 })) : e <= 65535 ? (t.writeUInt8(253, r), t.writeUInt16LE(e, r + 1), Object.assign(zn, { bytes: 3 })) : e <= 4294967295 ? (t.writeUInt8(254, r), t.writeUInt32LE(e, r + 1), Object.assign(zn, { bytes: 5 })) : (t.writeUInt8(255, r), t.writeUInt32LE(e >>> 0, r + 1), t.writeUInt32LE(e / 4294967296 | 0, r + 5), Object.assign(zn, { bytes: 9 })), t;
 }
-Ht.encode = Jn;
-function Zn(e, t) {
+Ht.encode = zn;
+function Jn(e, t) {
   if (!H.isBuffer(e))
     throw new TypeError("buffer must be a Buffer instance");
   t || (t = 0);
   const r = e.readUInt8(t);
   if (r < 253)
-    return Object.assign(Zn, { bytes: 1 }), r;
+    return Object.assign(Jn, { bytes: 1 }), r;
   if (r === 253)
-    return Object.assign(Zn, { bytes: 3 }), e.readUInt16LE(t + 1);
+    return Object.assign(Jn, { bytes: 3 }), e.readUInt16LE(t + 1);
   if (r === 254)
-    return Object.assign(Zn, { bytes: 5 }), e.readUInt32LE(t + 1);
+    return Object.assign(Jn, { bytes: 5 }), e.readUInt32LE(t + 1);
   {
-    Object.assign(Zn, { bytes: 9 });
+    Object.assign(Jn, { bytes: 9 });
     const n = e.readUInt32LE(t + 1), o = e.readUInt32LE(t + 5) * 4294967296 + n;
     return Xs(o), o;
   }
 }
-Ht.decode = Zn;
+Ht.decode = Jn;
 function Uu(e) {
   return Xs(e), e < 253 ? 1 : e <= 65535 ? 3 : e <= 4294967295 ? 5 : 9;
 }
@@ -10579,14 +10585,14 @@ function Es(e, t, r = 0) {
   if (i) return [t && t[0], i];
 }
 function G2(e, t, r) {
-  const n = Ri(e) && kn(t), i = kn(e) && Ri(t), o = e === t && Ri(t) && kn(t);
+  const n = Ri(e) && On(t), i = On(e) && Ri(t), o = e === t && Ri(t) && On(t);
   if (n || i || o)
     throw new Error(
       `Invalid arguments for Psbt.${r}. Cannot use both taproot and non-taproot fields.`
     );
 }
 function X2(e, t, r) {
-  const n = Fi(e) && kn(t), i = kn(e) && Fi(t), o = e === t && Fi(t) && kn(t);
+  const n = Fi(e) && On(t), i = On(e) && Fi(t), o = e === t && Fi(t) && On(t);
   if (n || i || o)
     throw new Error(
       `Invalid arguments for Psbt.${r}. Cannot use both taproot and non-taproot fields.`
@@ -10660,7 +10666,7 @@ function J2(e, t, r) {
   });
   return (!r || r.equals(n)) && t.find((o) => o.leafHash.equals(n)) !== void 0;
 }
-function kn(e) {
+function On(e) {
   return e && !!(e.redeemScript || e.witnessScript || e.bip32Derivation && e.bip32Derivation.length);
 }
 Object.defineProperty(go, "__esModule", { value: !0 });
@@ -10764,17 +10770,17 @@ class Vi {
     Oi(t), this.opts.maximumFeeRate = t;
   }
   setVersion(t) {
-    Oi(t), Gn(this.data.inputs, "setVersion");
+    Oi(t), Vn(this.data.inputs, "setVersion");
     const r = this.__CACHE;
     return r.__TX.version = t, r.__EXTRACTED_TX = void 0, this;
   }
   setLocktime(t) {
-    Oi(t), Gn(this.data.inputs, "setLocktime");
+    Oi(t), Vn(this.data.inputs, "setLocktime");
     const r = this.__CACHE;
     return r.__TX.locktime = t, r.__EXTRACTED_TX = void 0, this;
   }
   setInputSequence(t, r) {
-    Oi(r), Gn(this.data.inputs, "setInputSequence");
+    Oi(r), Vn(this.data.inputs, "setInputSequence");
     const n = this.__CACHE;
     if (n.__TX.ins.length <= t)
       throw new Error("Input index too high");
@@ -10788,7 +10794,7 @@ class Vi {
       throw new Error(
         "Invalid arguments for Psbt.addInput. Requires single object with at least [hash] and [index]"
       );
-    (0, Ce.checkTaprootInputFields)(t, t, "addInput"), Gn(this.data.inputs, "addInput"), t.witnessScript && Gi(t.witnessScript);
+    (0, Ce.checkTaprootInputFields)(t, t, "addInput"), Vn(this.data.inputs, "addInput"), t.witnessScript && Gi(t.witnessScript);
     const r = this.__CACHE;
     this.data.addInput(t);
     const n = r.__TX.ins[r.__TX.ins.length - 1];
@@ -10804,7 +10810,7 @@ class Vi {
       throw new Error(
         "Invalid arguments for Psbt.addOutput. Requires single object with at least [script or address] and [value]"
       );
-    Gn(this.data.inputs, "addOutput");
+    Vn(this.data.inputs, "addOutput");
     const { address: r } = t;
     if (typeof r == "string") {
       const { network: i } = this.opts, o = (0, tc.toOutputScript)(r, i);
@@ -10833,7 +10839,7 @@ class Vi {
     return sc("__FEE", "fee", this.data.inputs, this.__CACHE);
   }
   finalizeAllInputs() {
-    return (0, lt.checkForInput)(this.data.inputs, 0), Xn(this.data.inputs.length).forEach((t) => this.finalizeInput(t)), this;
+    return (0, lt.checkForInput)(this.data.inputs, 0), Gn(this.data.inputs.length).forEach((t) => this.finalizeInput(t)), this;
   }
   finalizeInput(t, r) {
     const n = (0, lt.checkForInput)(this.data.inputs, t);
@@ -10925,7 +10931,7 @@ class Vi {
     return !!n.bip32Derivation && n.bip32Derivation.some(i);
   }
   validateSignaturesOfAllInputs(t) {
-    return (0, lt.checkForInput)(this.data.inputs, 0), Xn(this.data.inputs.length).map(
+    return (0, lt.checkForInput)(this.data.inputs, 0), Gn(this.data.inputs.length).map(
       (n) => this.validateSignaturesOfInput(n, t)
     ).reduce((n, i) => i === !0 && n, !0);
   }
@@ -11006,7 +11012,7 @@ class Vi {
     if (!t || !t.publicKey || !t.fingerprint)
       throw new Error("Need HDSigner to sign input");
     const n = [];
-    for (const i of Xn(this.data.inputs.length))
+    for (const i of Gn(this.data.inputs.length))
       try {
         this.signInputHD(i, t, r), n.push(!0);
       } catch {
@@ -11021,7 +11027,7 @@ class Vi {
       if (!t || !t.publicKey || !t.fingerprint)
         return i(new Error("Need HDSigner to sign input"));
       const o = [], s = [];
-      for (const a of Xn(this.data.inputs.length))
+      for (const a of Gn(this.data.inputs.length))
         s.push(
           this.signInputHDAsync(a, t, r).then(
             () => {
@@ -11060,7 +11066,7 @@ class Vi {
     if (!t || !t.publicKey)
       throw new Error("Need Signer to sign input");
     const n = [];
-    for (const i of Xn(this.data.inputs.length))
+    for (const i of Gn(this.data.inputs.length))
       try {
         this.signInput(i, t, r), n.push(!0);
       } catch {
@@ -11382,7 +11388,7 @@ function ig(e, t, r) {
       `Warning: You are paying around ${(o / 1e8).toFixed(8)} in fees, which is ${n} satoshi per byte for a transaction with a VSize of ${i} bytes (segwit counted as 0.25 byte per byte). Use setMaximumFeeRate method to raise your threshold, or pass true to the first arg of extractTransaction.`
     );
 }
-function Gn(e, t) {
+function Vn(e, t) {
   e.forEach((r) => {
     if ((0, Ce.isTaprootInput)(r) ? (0, Ce.checkTaprootInputForSigs)(r, t) : (0, Me.checkInputForSig)(r, t))
       throw new Error("Can not modify transaction, signatures exist.");
@@ -11859,7 +11865,7 @@ function Gi(e) {
 function ll(e) {
   return (0, Me.isP2WPKH)(e) ? "witnesspubkeyhash" : (0, Me.isP2PKH)(e) ? "pubkeyhash" : (0, Me.isP2MS)(e) ? "multisig" : (0, Me.isP2PK)(e) ? "pubkey" : "nonstandard";
 }
-function Xn(e) {
+function Gn(e) {
   return [...Array(e).keys()];
 }
 (function(e) {
@@ -12005,7 +12011,7 @@ function Dg() {
 }
 export {
   qt as Chain,
-  _n as Network,
+  Zn as Network,
   Ng as OrdConnectKit,
   Bg as OrdConnectProvider,
   Mh as SelectWalletModal,
