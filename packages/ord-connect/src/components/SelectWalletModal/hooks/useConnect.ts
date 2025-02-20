@@ -126,10 +126,8 @@ const connectWallet = async (
   }: { network: Network; wallet: string; chain?: Chain },
   { readOnly = false } = {},
 ): Promise<ConnectedWalletType> => {
-  console.log("==>wallet", wallet);
   switch (wallet) {
     case Wallet.UNISAT: {
-      console.log("unisat1", network, wallet);
       const unisat = await getUnisatAddresses(network, chain, { readOnly });
       if (!unisat || unisat.length < 1) {
         throw new Error("Unisat via Ordit returned no addresses");
@@ -152,10 +150,7 @@ const connectWallet = async (
       };
     }
     case Wallet.XVERSE: {
-      console.log("xverse1", network, wallet);
-
       const xverse = await getXverseAddresses(network);
-      console.log("xverse1", xverse);
       if (!xverse || xverse.length < 1) {
         throw new Error("Xverse via Ordit returned no addresses");
       }
@@ -181,8 +176,6 @@ const connectWallet = async (
       if (!ordinalsAddress) {
         throw new Error("Xverse via Ordit did not return a Taproot address");
       }
-
-      console.log("xverse2", ordinalsAddress, paymentsAddress);
 
       return {
         address: {

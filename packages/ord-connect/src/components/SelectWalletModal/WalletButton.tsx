@@ -48,19 +48,21 @@ export function WalletButton({
   const handleWalletConnectClick = async () => {
     setLoading(true);
 
-    const isXverseTestnet =
-      wallet === Wallet.XVERSE && network === Network.TESTNET;
-
-    const isTestnet4 = network === ("testnet4" as Network);
-
-    console.log("isXverseTestnet==>", isXverseTestnet);
-    if (isXverseTestnet) {
-      updateNetwork("testnet4" as Network);
-    } else {
-      updateNetwork(isTestnet4 ? ("testnet4" as Network) : Network.TESTNET);
-    }
-
     try {
+      console.log("network==>clicked", network);
+
+      const isXverseTestnet =
+        wallet === Wallet.XVERSE && network === Network.TESTNET;
+
+      const isTestnet4 = network === ("testnet4" as Network);
+
+      console.log("isXverseTestnet==>", isXverseTestnet);
+      if (isXverseTestnet) {
+        updateNetwork("testnet4" as Network);
+      } else {
+        updateNetwork(isTestnet4 ? ("testnet4" as Network) : Network.TESTNET);
+      }
+
       await onConnect();
     } catch (e) {
       // intentionally empty
