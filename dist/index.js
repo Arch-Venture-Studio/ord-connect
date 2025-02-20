@@ -896,7 +896,7 @@ function Bg({
 }
 function zt() {
   const e = yt(yc);
-  if (console.log("context", e), !e)
+  if (console.log("+context", e), !e)
     throw new Error("useOrdConnect must be used within OrdConnectProvider");
   return e;
 }
@@ -2571,8 +2571,9 @@ const Bh = {
   wallet: t,
   chain: r = qt.BITCOIN
 }, { readOnly: n = !1 } = {}) => {
-  switch (t) {
+  switch (console.log("==>wallet", t), t) {
     case ee.UNISAT: {
+      console.log("unisat1", e, t);
       const i = await Hl(e, r, { readOnly: n });
       if (!i || i.length < 1)
         throw new Error("Unisat via Ordit returned no addresses");
@@ -2593,6 +2594,7 @@ const Bh = {
       };
     }
     case ee.XVERSE: {
+      console.log("xverse1", e, t);
       const i = await $l(e);
       if (console.log("xverse1", i), !i || i.length < 1)
         throw new Error("Xverse via Ordit returned no addresses");
@@ -2752,8 +2754,10 @@ function Nh({
     }
   };
   return Se(() => {
-    if (console.log("connectedWallet", d), d !== ee.UNISAT)
+    if (console.log("connectedWallet", d), d !== ee.UNISAT) {
+      console.log("connectedWallet", d);
       return;
+    }
     let O = !0, x = !1;
     const $ = () => B(ee.UNISAT);
     return l && p && f && (async () => {
