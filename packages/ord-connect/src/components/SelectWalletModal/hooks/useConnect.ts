@@ -369,9 +369,7 @@ export function useConnect({
 
   // Reconnect address change listener if a connected wallet exists
   useEffect(() => {
-    console.log("connectedWallet", connectedWallet);
     if (connectedWallet !== Wallet.UNISAT) {
-      console.log("connectedWallet", connectedWallet);
       return undefined;
     }
 

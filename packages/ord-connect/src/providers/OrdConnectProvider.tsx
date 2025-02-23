@@ -164,27 +164,22 @@ export function OrdConnectProvider({
       updatePublicKey: setPublicKey,
       network,
       updateNetwork: (networkParam) => {
-        if (wallet === Wallet.XVERSE && networkParam === Network.TESTNET) {
+        if (
+          wallet !== Wallet.XVERSE &&
+          networkParam === ("testnet4" as Network)
+        ) {
+          setNetwork(Network.TESTNET);
+        } else if (
+          wallet === Wallet.XVERSE &&
+          networkParam === Network.TESTNET
+        ) {
           setNetwork("testnet4" as Network);
         } else {
           setNetwork(networkParam);
         }
       },
       wallet,
-      updateWallet: (walletParam) => {
-        if (
-          network === Network.TESTNET ||
-          network === ("testnet4" as Network)
-        ) {
-          if (walletParam === Wallet.XVERSE) {
-            setNetwork("testnet4" as Network);
-          } else {
-            setNetwork(Network.TESTNET);
-          }
-        }
-
-        setWallet(walletParam);
-      },
+      updateWallet: setWallet,
       isModalOpen,
       openModal,
       closeModal,
@@ -202,9 +197,7 @@ export function OrdConnectProvider({
       publicKey,
       setPublicKey,
       network,
-      setNetwork,
       wallet,
-      setWallet,
       isModalOpen,
       openModal,
       closeModal,
@@ -212,7 +205,8 @@ export function OrdConnectProvider({
       setFormat,
       disconnectWallet,
       chain,
-      setChain,
+      visibleWallets,
+      setWallet,
     ],
   );
 
@@ -236,7 +230,6 @@ export function OrdConnectProvider({
 
 export function useOrdConnect() {
   const context = useContext(OrdConnectContext);
-  console.log("+context", context);
 
   if (!context) {
     throw new Error("useOrdConnect must be used within OrdConnectProvider");
