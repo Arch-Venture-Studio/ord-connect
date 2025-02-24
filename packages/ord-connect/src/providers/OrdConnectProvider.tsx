@@ -19,6 +19,10 @@ export enum Network {
 
 export enum Wallet {
   UNISAT = "unisat",
+  XVERSE = "xverse",
+  MAGICEDEN = "magiceden",
+  LEATHER = "leather",
+  OKX = "okx",
 }
 
 export enum Chain {
