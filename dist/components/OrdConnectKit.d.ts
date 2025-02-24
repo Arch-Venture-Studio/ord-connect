@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { Wallet } from '../providers/OrdConnectProvider';
-
 export interface OrdConnectKitProps {
     hideConnectButton?: boolean;
     onViewProfile?: () => void;

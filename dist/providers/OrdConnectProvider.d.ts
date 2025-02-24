@@ -1,6 +1,5 @@
 import { PropsWithChildren } from 'react';
 import { AddressFormat } from '@ordzaar/ordit-sdk';
-
 export declare enum Network {
     MAINNET = "mainnet",
     TESTNET = "testnet",

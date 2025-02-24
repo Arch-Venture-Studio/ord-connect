@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { Wallet } from '../../providers/OrdConnectProvider';
-
 interface SelectWalletModalProps {
     isOpen: boolean;
     closeModal: () => void;
