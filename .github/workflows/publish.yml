@@ -42,7 +42,7 @@ jobs:
       # Step 7: Zip the dist folder for upload
       - name: Prepare Release Assets
         working-directory: packages/ord-connect
-        run: zip -r dist.zip dist index.d.ts package.json
+        run: tar -czvf ord-connect.tgz dist index.d.ts package.json
 
       # Step 8: Upload Assets to GitHub Release
       - name: Upload Release Assets
@@ -51,6 +51,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./packages/ord-connect/dist.zip
-          asset_name: ord-connect-dist.zip
-          asset_content_type: application/zip
+          asset_path: ./packages/ord-connect/ord-connect.tgz
+          asset_name: ord-connect.tgz
+          asset_content_type: application/gzip

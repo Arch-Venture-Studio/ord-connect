@@ -2,9 +2,14 @@ import { Fragment, ReactNode, useMemo, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import CloseModalIcon from "../../assets/close-modal.svg";
+import LeatherWalletIcon from "../../assets/leather-wallet.svg";
+import MagicEdenWalletIcon from "../../assets/magiceden-wallet.svg";
+import OKXWalletIcon from "../../assets/okx-wallet.svg";
 import UnisatWalletIcon from "../../assets/unisat-wallet.svg";
+import XverseWalletIcon from "../../assets/xverse-wallet.svg";
 import {
   Chain,
+  Network,
   useOrdConnect,
   Wallet,
 } from "../../providers/OrdConnectProvider";
@@ -54,6 +59,14 @@ export function SelectWalletModal({
   const isMobile = isMobileUserAgent();
   const orderedWalletList = useMemo<WalletListItemProps[]>(() => {
     const ALL_WALLETS: WalletListItemProps[] = [
+      {
+        wallet: Wallet.OKX,
+        onConnect: () => connectWallet(Wallet.OKX),
+        icon: OKXWalletIcon,
+        hidden: isMobile && network !== Network.MAINNET,
+        order: 20,
+        chains: [Chain.BITCOIN],
+      },
       {
         wallet: Wallet.UNISAT,
         onConnect: () => connectWallet(Wallet.UNISAT),
@@ -105,7 +118,7 @@ export function SelectWalletModal({
     });
 
     return updatedList.sort((a, b) => a.order - b.order);
-  }, [isMobile, network, walletsOrder, connectWallet, chain]);
+  }, [isMobile, network, walletsOrder, connectWallet, visibleWallets, chain]);
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
