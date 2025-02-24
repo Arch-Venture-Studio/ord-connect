@@ -42,7 +42,7 @@ jobs:
       # Step 7: Zip the dist folder for upload
       - name: Prepare Release Assets
         working-directory: packages/ord-connect
-        run: zip -r dist.zip dist index.d.ts package.json
+        run: tar -czvf ord-connect.tgz dist index.d.ts package.json
 
       # Step 8: Upload Assets to GitHub Release
       - name: Upload Release Assets
