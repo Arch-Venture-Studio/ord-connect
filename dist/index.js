@@ -23869,7 +23869,7 @@ const NETWORK_TO_BITCOIN_NETWORK_TYPE = {
 }, { readOnly: ne = !1 } = {}) => {
   switch (z) {
     case Wallet.UNISAT: {
-      const ie = await getAddresses$3(B === "testnet4" ? "testnet" : "mainnet", Y, { readOnly: ne });
+      const ie = await getAddresses$3(B === "testnet4" ? "testnet" : B, Y, { readOnly: ne });
       if (!ie || ie.length < 1)
         throw new Error("Unisat via Ordit returned no addresses");
       const se = ie[0];
