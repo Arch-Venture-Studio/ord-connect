@@ -848,12 +848,7 @@ function OrdConnectProvider({
       publicKey: ht,
       updatePublicKey: vt,
       network: ie,
-      updateNetwork: (Ot) => {
-        console.log("before", Pe, Ot), Pe !== "xverse" && Ot === "testnet4" ? (se(
-          "testnet"
-          /* TESTNET */
-        ), console.log("1")) : Pe === "xverse" && Ot === "testnet" ? (se("testnet4"), console.log("2")) : (se(Ot), console.log("3")), console.log("after", Pe, Ot, ie);
-      },
+      updateNetwork: se,
       wallet: Pe,
       updateWallet: Ve,
       isModalOpen: kt,
@@ -24017,59 +24012,58 @@ function useConnect({
     updateWallet: ae,
     updatePublicKey: ie,
     updateFormat: se,
-    updateNetwork: le,
-    disconnectWallet: ve,
-    address: ge,
-    publicKey: oe,
-    format: Ee,
-    wallet: Ce,
-    chain: Pe
-  } = useOrdConnect(), Ve = (vt, Pt) => {
-    z(Pt.message ?? Pt.toString()), console.error(`Error while connecting to ${vt} wallet`, Pt), ve(), Pt instanceof BrowserWalletNotInstalledError && window.open(
-      WALLET_CHROME_EXTENSION_URL[vt],
+    disconnectWallet: le,
+    address: ve,
+    publicKey: ge,
+    format: oe,
+    wallet: Ee,
+    chain: Ce
+  } = useOrdConnect(), Pe = (ht, vt) => {
+    z(vt.message ?? vt.toString()), console.error(`Error while connecting to ${ht} wallet`, vt), le(), vt instanceof BrowserWalletNotInstalledError && window.open(
+      WALLET_CHROME_EXTENSION_URL[ht],
       "_blank",
       "noopener,noreferrer"
     );
-  }, ht = async (vt, { readOnly: Pt = !1 } = {}) => {
+  }, Ve = async (ht, { readOnly: vt = !1 } = {}) => {
     try {
-      const { address: _t, publicKey: kt, format: Ct } = await connectWallet(
-        { network: ne, wallet: vt, chain: Pe },
-        { readOnly: Pt }
+      const { address: Pt, publicKey: _t, format: kt } = await connectWallet(
+        { network: ne, wallet: ht, chain: Ce },
+        { readOnly: vt }
       );
       return Y({
+        ordinals: Pt.ordinals,
+        payments: Pt.payments
+      }), ie({
         ordinals: _t.ordinals,
         payments: _t.payments
-      }), ie({
+      }), ae(ht), se({
         ordinals: kt.ordinals,
         payments: kt.payments
-      }), ae(vt), se({
-        ordinals: Ct.ordinals,
-        payments: Ct.payments
-      }), le(ne), B(), !0;
-    } catch (_t) {
-      return console.log("===>err", _t), Ve(vt, _t), !1;
+      }), B(), !0;
+    } catch (Pt) {
+      return console.log("===>err", Pt), Pe(ht, Pt), !1;
     }
   };
   return useEffect(() => {
-    if (Ce !== Wallet.UNISAT)
+    if (Ee !== Wallet.UNISAT)
       return;
-    let vt = !0, Pt = !1;
-    const _t = () => ht(Wallet.UNISAT);
-    return ge && oe && Ee && (async () => {
-      const Ct = await waitForUnisatExtensionReady();
-      if (vt) {
-        if (!Ct) {
-          ve();
+    let ht = !0, vt = !1;
+    const Pt = () => Ve(Wallet.UNISAT);
+    return ve && ge && oe && (async () => {
+      const kt = await waitForUnisatExtensionReady();
+      if (ht) {
+        if (!kt) {
+          le();
           return;
         }
-        Pt = await ht(Wallet.UNISAT, {
+        vt = await Ve(Wallet.UNISAT, {
           readOnly: !0
-        }), vt && Pt && window.unisat.addListener("accountsChanged", _t);
+        }), ht && vt && window.unisat.addListener("accountsChanged", Pt);
       }
     })(), () => {
-      vt = !1, Pt && window.unisat.removeListener("accountsChanged", _t);
+      ht = !1, vt && window.unisat.removeListener("accountsChanged", Pt);
     };
-  }, [Ce]), { connectWallet: ht };
+  }, [Ee]), { connectWallet: Ve };
 }
 const ChevronRightIcon = "data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M9%2018L15%2012L9%206'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e", LoadingIcon = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='44'%20height='44'%20viewBox='0%200%2044%2044'%20stroke='%23fff'%3e%3cg%20fill='none'%20fill-rule='evenodd'%20stroke-width='2'%3e%3ccircle%20cx='22'%20cy='22'%20r='1'%3e%3canimate%20attributeName='r'%20begin='0s'%20dur='1.8s'%20values='1;%2020'%20calcMode='spline'%20keyTimes='0;%201'%20keySplines='0.165,%200.84,%200.44,%201'%20repeatCount='indefinite'/%3e%3canimate%20attributeName='stroke-opacity'%20begin='0s'%20dur='1.8s'%20values='1;%200'%20calcMode='spline'%20keyTimes='0;%201'%20keySplines='0.3,%200.61,%200.355,%201'%20repeatCount='indefinite'/%3e%3c/circle%3e%3ccircle%20cx='22'%20cy='22'%20r='1'%3e%3canimate%20attributeName='r'%20begin='-0.9s'%20dur='1.8s'%20values='1;%2020'%20calcMode='spline'%20keyTimes='0;%201'%20keySplines='0.165,%200.84,%200.44,%201'%20repeatCount='indefinite'/%3e%3canimate%20attributeName='stroke-opacity'%20begin='-0.9s'%20dur='1.8s'%20values='1;%200'%20calcMode='spline'%20keyTimes='0;%201'%20keySplines='0.3,%200.61,%200.355,%201'%20repeatCount='indefinite'/%3e%3c/circle%3e%3c/g%3e%3c/svg%3e", WALLET_TO_NAME = {
   [Wallet.MAGICEDEN]: "Magic Eden",
