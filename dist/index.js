@@ -23848,7 +23848,7 @@ const getXverseAddresses = async (B) => {
       });
     },
     onCancel: () => {
-      throw new BrowserWalletRequestCancelledByUserError();
+      throw new BrowserWalletRequestCancelledByUserError("User Error");
     }
   };
   return await getAddress(ae), ne;
