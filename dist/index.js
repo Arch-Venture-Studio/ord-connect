@@ -23816,11 +23816,8 @@ async function waitForUnisatExtensionReady() {
   }
   return !1;
 }
-const NETWORK_TO_BITCOIN_NETWORK_TYPE = {
-  mainnet: BitcoinNetworkType.Mainnet,
-  testnet: BitcoinNetworkType.Testnet,
-  signet: BitcoinNetworkType.Signet
-}, getXverseAddresses = async (B) => {
+BitcoinNetworkType.Mainnet, BitcoinNetworkType.Testnet, BitcoinNetworkType.Signet;
+const getXverseAddresses = async (B) => {
   var ie;
   if (typeof window > "u")
     throw new OrditSDKError("Cannot call this function outside a browser");
@@ -23831,12 +23828,12 @@ const NETWORK_TO_BITCOIN_NETWORK_TYPE = {
       purposes: ["ordinals", "payment"],
       message: "Provide access to Payment address and Ordinals address",
       network: {
-        type: B === Network.TESTNET ? BitcoinNetworkType.Testnet4 : NETWORK_TO_BITCOIN_NETWORK_TYPE[B]
+        type: (B === Network.TESTNET, BitcoinNetworkType.Testnet4)
       }
     },
     getProvider: Y,
     onFinish: (se) => {
-      if (!se || !se.addresses || se.addresses.length !== 2)
+      if (console.log("==>response", se), !se || !se.addresses || se.addresses.length !== 2)
         throw new BrowserWalletSigningError(
           "Failed to retrieve addresses using selected wallet"
         );
@@ -24044,7 +24041,7 @@ function useConnect({
         payments: kt.payments
       }), B(), !0;
     } catch (Pt) {
-      return Pe(ht, Pt), !1;
+      return console.log("===>err", Pt), Pe(ht, Pt), !1;
     }
   };
   return useEffect(() => {
