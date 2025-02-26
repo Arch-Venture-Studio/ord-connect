@@ -4,7 +4,7 @@ import { useBalance } from "./hooks/useBalance";
 import { useSend } from "./hooks/useSend";
 import { useSignMessage } from "./hooks/useSignMessage";
 import {
-  Chain,
+  // Chain,
   Network,
   OrdConnectProvider,
   useOrdConnect,
@@ -26,7 +26,7 @@ function TestControls() {
   const [result, setResult] = useState("");
   const [balance, setBalance] = useState<number | undefined>(undefined);
 
-  const { address, wallet } = useOrdConnect();
+  const { address, network, wallet, testnetAddress } = useOrdConnect();
 
   const handleCheckBalance = async () => {
     try {
@@ -67,8 +67,17 @@ function TestControls() {
       throw new Error("No payment address");
     }
 
+    const signedAddress =
+      network === Network.TESTNET || network === ("testnet4" as Network)
+        ? testnetAddress
+        : address;
+
+    if (!signedAddress.ordinals) {
+      throw new Error("No ordinals address available");
+    }
+
     const signed = await signMsg(
-      address.ordinals,
+      signedAddress.ordinals,
       "This is a test message which will not be used anywhere.",
     );
     console.log(signed);
@@ -113,30 +122,53 @@ function TestControls() {
   );
 }
 
+function TestnetComponents() {
+  const {
+    network,
+    testnetAddress,
+    updateNetwork,
+    updateVisibleWallets,
+    openModal,
+  } = useOrdConnect();
+
+  const handleConnect = () => {
+    updateNetwork(Network.TESTNET);
+    updateVisibleWallets([Wallet.UNISAT, Wallet.XVERSE]);
+    openModal();
+  };
+
+  return (
+    <div>
+      <p>{testnetAddress.ordinals}</p>
+      <button type="button" onClick={handleConnect}>
+        Switch to Testnet({network})
+      </button>
+    </div>
+  );
+}
+
 export function SampleApp() {
   return (
     <div className="app">
       <OrdConnectProvider
-        network={Network.TESTNET}
+        network={Network.MAINNET}
         visibleWallets={[
           Wallet.UNISAT,
-          Wallet.MAGICEDEN,
           Wallet.XVERSE,
+          Wallet.MAGICEDEN,
+          Wallet.OKX,
+          Wallet.LEATHER,
           Wallet.OKX,
         ]}
-        chain={Chain.BITCOIN}
+        // chain={Chain.BITCOIN}
       >
         <OrdConnectKit
           onViewProfile={() => console.log("View profile clicked")}
           preferredWallet={Wallet.UNISAT}
-          walletsOrder={[
-            Wallet.UNISAT,
-            Wallet.XVERSE,
-            Wallet.MAGICEDEN,
-            Wallet.OKX,
-          ]}
+          walletsOrder={[Wallet.UNISAT]}
         />
         <TestControls />
+        <TestnetComponents />
       </OrdConnectProvider>
     </div>
   );

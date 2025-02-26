@@ -45,7 +45,9 @@ const EMPTY_BIADDRESS_OBJECT = {
 
 interface OrdConnectContextType {
   address: BiAddressString;
+  testnetAddress: BiAddressString;
   updateAddress: (address: BiAddressString) => void;
+  updateTestnetAddress: (address: BiAddressString) => void;
   publicKey: BiAddressString;
   updatePublicKey: (publicKey: BiAddressString) => void;
   network: Network;
@@ -69,6 +71,7 @@ const OrdConnectContext = createContext<OrdConnectContextType | undefined>(
 );
 
 const ADDRESS = "address";
+const TESTNET_ADDRESS = "testnetAddress";
 const WALLET = "wallet";
 const PUBLIC_KEY = "publicKey";
 const FORMAT = "format";
@@ -130,6 +133,12 @@ export function OrdConnectProvider({
     { initializeWithValue: !ssr },
   );
 
+  const [testnetAddress, setTestnetAddress] = useLocalStorage<BiAddressString>(
+    TESTNET_ADDRESS,
+    EMPTY_BIADDRESS_OBJECT,
+    { initializeWithValue: !ssr },
+  );
+
   const [wallet, setWallet] = useLocalStorage<Wallet | null>(WALLET, null, {
     initializeWithValue: !ssr,
   });
@@ -151,6 +160,7 @@ export function OrdConnectProvider({
 
   const disconnectWallet = useCallback(() => {
     setAddress(EMPTY_BIADDRESS_OBJECT);
+    setTestnetAddress(EMPTY_BIADDRESS_OBJECT);
     setPublicKey(EMPTY_BIADDRESS_OBJECT);
     setFormat(EMPTY_BIADDRESS_OBJECT as BiAddressFormat);
     setWallet(null);
@@ -159,25 +169,13 @@ export function OrdConnectProvider({
   const context: OrdConnectContextType = useMemo(
     () => ({
       address,
+      testnetAddress,
       updateAddress: setAddress,
+      updateTestnetAddress: setTestnetAddress,
       publicKey,
       updatePublicKey: setPublicKey,
       network,
-      updateNetwork: (networkParam) => {
-        if (
-          wallet !== Wallet.XVERSE &&
-          networkParam === ("testnet4" as Network)
-        ) {
-          setNetwork(Network.TESTNET);
-        } else if (
-          wallet === Wallet.XVERSE &&
-          networkParam === Network.TESTNET
-        ) {
-          setNetwork("testnet4" as Network);
-        } else {
-          setNetwork(networkParam);
-        }
-      },
+      updateNetwork: setNetwork,
       wallet,
       updateWallet: setWallet,
       isModalOpen,
@@ -194,6 +192,8 @@ export function OrdConnectProvider({
     [
       address,
       setAddress,
+      testnetAddress,
+      setTestnetAddress,
       publicKey,
       setPublicKey,
       network,

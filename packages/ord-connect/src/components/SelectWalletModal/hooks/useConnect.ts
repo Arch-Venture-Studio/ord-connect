@@ -1,12 +1,5 @@
 import { useEffect } from "react";
-import {
-  AddressPurpose,
-  BitcoinNetworkType,
-  BitcoinProvider,
-  getAddress,
-  GetAddressOptions,
-  GetAddressResponse,
-} from "sats-connect";
+import { AddressPurpose, BitcoinNetworkType, request } from "sats-connect";
 import {
   BrowserWalletNotInstalledError,
   BrowserWalletRequestCancelledByUserError,
@@ -58,33 +51,39 @@ const getXverseAddresses = async (
   if (!hasXverse) {
     throw new BrowserWalletNotInstalledError("Xverse not installed");
   }
-  const getProvider = async () =>
-    window.XverseProviders!.BitcoinProvider! as BitcoinProvider;
 
   const result: WalletAddress[] = [];
 
-  const options: GetAddressOptions = {
-    payload: {
-      purposes: ["ordinals", "payment"] as AddressPurpose[],
+  const response = await request(
+    "wallet_connect",
+    {
       message: "Provide access to Payment address and Ordinals address",
-      network: {
-        type:
-          network === Network.TESTNET
-            ? BitcoinNetworkType.Testnet4
-            : NETWORK_TO_BITCOIN_NETWORK_TYPE[network],
-      },
+      addresses: ["ordinals", "payment"] as AddressPurpose[],
     },
-    getProvider,
-    onFinish: (response: GetAddressResponse) => {
-      if (!response || !response.addresses || response.addresses.length !== 2) {
-        throw new BrowserWalletSigningError(
-          "Failed to retrieve addresses using selected wallet",
-        );
-      }
+    "XverseProviders.BitcoinProvider",
+  );
 
-      response.addresses.forEach((addressObj) => {
+  if (response.status === "error") {
+    throw new Error("Failed to connect to Xverse");
+  }
+
+  if (response.status === "success") {
+    console.log("==>response", response.result);
+    if (
+      !response.result ||
+      !response.result.addresses ||
+      response.result.addresses.length !== 2
+    ) {
+      throw new BrowserWalletSigningError(
+        "Failed to retrieve addresses using selected wallet",
+      );
+    }
+
+    response.result.addresses.forEach((addressObj) => {
+      console.log("==>format", "format");
+
+      try {
         const format = getAddressFormat(addressObj.address, network);
-
         let fullPubKey = addressObj.publicKey;
         if (format === "taproot") {
           // For taproot addresses, sats-connect returns the x-only public key.
@@ -98,15 +97,19 @@ const getXverseAddresses = async (
           address: addressObj.address,
           format,
         });
-      });
-    },
-    onCancel: () => {
-      throw new BrowserWalletRequestCancelledByUserError();
-    },
-  };
+      } catch (error) {
+        if (network === Network.TESTNET) {
+          throw new Error(
+            `Wrong network type selected. To switch networks in Xverse wallet, go to Settings (⚙️) > click on Network > Switch to Testnet4 and save your settings.`,
+          );
+        }
 
-  await getAddress(options);
-
+        throw new Error(
+          `Wrong network type selected. To switch networks in Xverse wallet, go to Settings (⚙️) > click on Network > Switch to ${network} and save your settings.`,
+        );
+      }
+    });
+  }
   return result;
 };
 
@@ -128,12 +131,17 @@ const connectWallet = async (
 ): Promise<ConnectedWalletType> => {
   switch (wallet) {
     case Wallet.UNISAT: {
-      const unisat = await getUnisatAddresses(network, chain, { readOnly });
+      const rightNetwork =
+        network === ("testnet4" as Network) ? "testnet" : network;
+      const unisat = await getUnisatAddresses(rightNetwork, chain, {
+        readOnly,
+      });
       if (!unisat || unisat.length < 1) {
         throw new Error("Unisat via Ordit returned no addresses");
       }
 
       const unisatWallet = unisat[0];
+
       return {
         address: {
           ordinals: unisatWallet.address,
@@ -151,6 +159,7 @@ const connectWallet = async (
     }
     case Wallet.XVERSE: {
       const xverse = await getXverseAddresses(network);
+      console.log("==>xverse", xverse);
       if (!xverse || xverse.length < 1) {
         throw new Error("Xverse via Ordit returned no addresses");
       }
@@ -308,6 +317,7 @@ export function useConnect({
 }) {
   const {
     updateAddress,
+    updateTestnetAddress,
     network,
     updateWallet,
     updatePublicKey,
@@ -346,10 +356,19 @@ export function useConnect({
         { network, wallet, chain },
         { readOnly },
       );
-      updateAddress({
-        ordinals: address.ordinals,
-        payments: address.payments,
-      });
+
+      if (network === Network.TESTNET || network === ("testnet4" as Network)) {
+        updateTestnetAddress({
+          ordinals: address.ordinals,
+          payments: address.payments,
+        });
+      } else {
+        updateAddress({
+          ordinals: address.ordinals,
+          payments: address.payments,
+        });
+      }
+
       updatePublicKey({
         ordinals: publicKey.ordinals,
         payments: publicKey.payments,
@@ -362,6 +381,7 @@ export function useConnect({
       onClose();
       return true;
     } catch (err) {
+      console.log("===>err", err);
       onError(wallet, err as Error);
       return false;
     }

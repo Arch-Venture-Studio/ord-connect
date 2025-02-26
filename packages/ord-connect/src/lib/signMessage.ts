@@ -1,12 +1,20 @@
-import { AddressFormat } from "@ordzaar/ordit-sdk";
+import { request, RpcErrorCode } from "sats-connect";
+import {
+  AddressFormat,
+  BrowserWalletRequestCancelledByUserError,
+  BrowserWalletSigningError,
+  OrditSDKError,
+} from "@ordzaar/ordit-sdk";
 import {
   LeatherAddressType,
   signMessage as signLeatherMessage,
 } from "@ordzaar/ordit-sdk/leather";
 import { signMessage as signMagicEdenMessage } from "@ordzaar/ordit-sdk/magiceden";
-import { signMessage as signOKXMessage } from "@ordzaar/ordit-sdk/okx";
+import {
+  BrowserWalletSignResponse,
+  signMessage as signOKXMessage,
+} from "@ordzaar/ordit-sdk/okx";
 import { signMessage as signUnisatMessage } from "@ordzaar/ordit-sdk/unisat";
-import { signMessage as signXverseMessage } from "@ordzaar/ordit-sdk/xverse";
 
 import { Network, Wallet } from "../providers/OrdConnectProvider";
 
@@ -28,6 +36,49 @@ function leatherPaymentTypeFromFormat(
     return LeatherAddressType.P2TR;
   }
   throw new Error("Leather payment address format is not supported");
+}
+
+async function signXverseMessage(
+  message: string,
+  address: string,
+  network: Network,
+): Promise<BrowserWalletSignResponse> {
+  if (!message || !network || !address) {
+    throw new OrditSDKError("Invalid options provided");
+  }
+
+  let hex: string;
+  let base64: string | null = null;
+
+  const response = await request(
+    "signMessage",
+    {
+      address,
+      message,
+    },
+    "XverseProviders.BitcoinProvider",
+  );
+
+  console.log("xxxresponse", response);
+  if (!response) {
+    throw new BrowserWalletSigningError(
+      "Failed to sign message using selected wallet",
+    );
+  }
+
+  if (response.status === "success") {
+    hex = Buffer.from(response.result.signature, "base64").toString("hex");
+    base64 = response.result.signature;
+  } else if (response.error.code === RpcErrorCode.USER_REJECTION) {
+    throw new BrowserWalletRequestCancelledByUserError();
+  } else {
+    throw new Error("Failed to sign message");
+  }
+
+  // The Return is supplied by the await statement above, which extracts the hex and optional base64 from the response.
+  // Hex is always returned, hence the not null assertion.
+  // In cases where there is no hex, an error would be thrown by the handleOnFinish function.
+  return { hex: hex!, base64 };
 }
 
 /**

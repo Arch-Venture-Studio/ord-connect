@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import signMessage from "../lib/signMessage.ts";
-import { useOrdConnect } from "../providers/OrdConnectProvider";
+import { Network, useOrdConnect } from "../providers/OrdConnectProvider";
 
 export function useSignMessage(): {
   isLoading: boolean;
@@ -14,6 +14,7 @@ export function useSignMessage(): {
     publicKey,
     format,
     address: walletAddresses,
+    testnetAddress,
   } = useOrdConnect();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -28,20 +29,26 @@ export function useSignMessage(): {
           throw new Error("No wallet is connected");
         }
 
+        const signedAddress =
+          network === Network.TESTNET || network === ("testnet4" as Network)
+            ? testnetAddress
+            : walletAddresses;
+
         if (
-          walletAddresses.ordinals !== address &&
-          walletAddresses.payments !== address
+          signedAddress.ordinals !== address &&
+          signedAddress.payments !== address
         ) {
           throw new Error("Address supplied is not connected address");
         }
 
+        console.log("==>signedAddress", address, signedAddress);
         const signedMessage = await signMessage({
           address,
           wallet,
           message,
           network,
           format:
-            walletAddresses.ordinals === address
+            signedAddress.ordinals === address
               ? format.ordinals!
               : format.payments!,
         });
@@ -49,6 +56,7 @@ export function useSignMessage(): {
         setIsLoading(false);
         return signedMessage;
       } catch (err) {
+        console.log("==>err", err);
         setError((err as Error).message);
         setIsLoading(false);
         throw err;
