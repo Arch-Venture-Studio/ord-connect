@@ -36,8 +36,8 @@
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "typescript": "^5.6.3",
     "vite": "^5.4.10",
     "vite-plugin-css-injected-by-js": "^3.5.2",
@@ -62,7 +62,7 @@
   },
   "peerDependencies": {
     "@ordzaar/ordit-sdk": "^4.2.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }
