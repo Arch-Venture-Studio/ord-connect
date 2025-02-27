@@ -1,5 +1,5 @@
 {
-  "name": "@ordzaar/ord-connect",
+  "name": "@arch/ord-connect",
   "version": "0.0.0",
   "description": "React component library for Bitcoin Ordinals",
   "repository": "https://github.com/ordzaar/ord-connect",
@@ -50,7 +50,7 @@
     "bignumber.js": "^9.1.2",
     "bitcoinjs-lib": "6.1.6",
     "boring-avatars": "^1.11.2",
-    "sats-connect": "^3.2.0"
+    "sats-connect": "3.0.1"
   },
   "lint-staged": {
     "*": [
@@ -61,7 +61,7 @@
     ]
   },
   "peerDependencies": {
-    "@ordzaar/ordit-sdk": "^3.0.0",
+    "@ordzaar/ordit-sdk": "^4.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }

@@ -16,7 +16,7 @@ importers:
         version: 2.3.0(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@8.57.1))(eslint-plugin-react-hooks@5.0.0(eslint@8.57.1))(eslint-plugin-react@7.37.4(eslint@8.57.1))(typescript@5.7.3)
       '@ordzaar/standard-web-linter':
         specifier: ^2.1.2
-        version: 2.3.0(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.3)
+        version: 2.3.0(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       husky:
         specifier: ^9.1.6
         version: 9.1.7
@@ -30,8 +30,8 @@ importers:
         specifier: ^2.1.10
         version: 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ordzaar/ordit-sdk':
-        specifier: ^3.0.0
-        version: 3.0.0(typescript@5.7.3)(valibot@0.42.1(typescript@5.7.3))
+        specifier: ^4.2.0
+        version: 4.2.4(typescript@5.7.3)
       bignumber.js:
         specifier: ^9.1.2
         version: 9.1.2
@@ -42,8 +42,8 @@ importers:
         specifier: ^1.11.2
         version: 1.11.2
       sats-connect:
-        specifier: ^3.2.0
-        version: 3.2.0(typescript@5.7.3)
+        specifier: 3.0.1
+        version: 3.0.1(typescript@5.7.3)
     devDependencies:
       '@types/node':
         specifier: ^20.17.0
@@ -429,8 +429,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@ordzaar/ordit-sdk@3.0.0':
-    resolution: {integrity: sha512-jCmD7OOOEZ4s8fdN77h+MKPuMkjta5ifGypzxQtFPuNCvAfywSRIzW9X63+AuPGjkFTLovwlMMEuk1v4bAJE2A==}
+  '@ordzaar/ordit-sdk@4.2.4':
+    resolution: {integrity: sha512-ViZdP6CgncUw2o+l0tT3GxZFnIopMZWolwXBrUEhUjqvHNueoM14MMfuc/8n9z3XP6hClbIIU5XK4Y0FyWos4g==}
 
   '@ordzaar/standard-prettier@2.3.0':
     resolution: {integrity: sha512-1H+Lbr4fPJYckK7hIu/PBeY4Q+E++MFZMwKkggvShLH5FIzPTfFZHTRnvBfaJ/wSpmCFI97g6HTvxEsqmHA1zQ==}
@@ -630,25 +630,14 @@ packages:
   '@rushstack/ts-command-line@4.23.5':
     resolution: {integrity: sha512-jg70HfoK44KfSP3MTiL5rxsZH7X1ktX3cZs9Sl8eDu1/LxJSbPsh0MOFRC710lIuYYSgxWjI5AjbCBAl7u3RxA==}
 
-  '@sats-connect/core@0.1.2':
-    resolution: {integrity: sha512-SM8U7Bcp5PdtAXw0CNFP3QloU0/xMSupH0FOw65YzWGSklFRoQBq+YCrCZ/shB7fIg1wPFgEFvY5MLQjANl+gw==}
-    peerDependencies:
-      valibot: 0.33.2
-
-  '@sats-connect/core@0.5.6':
-    resolution: {integrity: sha512-ZCCN3nHn3LiJmsUflkBWHkHHw3LdmY2d4BdXH8tz3PNH/n4GT0Cogzb5cJGzdLSZChd+GQvM1gO/4DTayX2BrA==}
+  '@sats-connect/core@0.4.1':
+    resolution: {integrity: sha512-//0ge/FbKQZdhfFBR7LKdJxpzVB+bGfqHwkjHl0EX3QwvAu8n0dSoUZlym43+KB7gy0rgv1+ECFrOCeYGpGFgA==}
 
   '@sats-connect/make-default-provider-config@0.0.10':
     resolution: {integrity: sha512-BBot3Ofa2J7OwXprgYPD4C8dppX4nnPxj4FXWq1H7fDsvwJmW4sAnfmnAIzwmyWZJOR2uZqtTkXAA08sVkoN5g==}
     peerDependencies:
       '@sats-connect/core': '*'
       typescript: ^5.0.0
-
-  '@sats-connect/make-default-provider-config@0.0.5':
-    resolution: {integrity: sha512-b/v4IeDEde5DqFOdMbMmf3B0t/lxlKnY04f3YIUWe1khOg3S6VdcK9Mqva+WUOsJHBTIA5b4hK7CqfMjx1Ic+w==}
-    peerDependencies:
-      '@sats-connect/core': '*'
-      typescript: 5.4.4
 
   '@sats-connect/ui@0.0.6':
     resolution: {integrity: sha512-H3bFFhr9CcY1oNosNi/QJszmMHSht4U19bUWfM3vzayAKgV4ebY6iUnRK5g3p2rVLLWVzlpaw1J9m+7JWwyBfA==}
@@ -761,11 +750,11 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@18.15.13':
-    resolution: {integrity: sha512-N+0kuo9KgrUQ1Sn/ifDXsvg0TTleP7rIy4zOBGECxAljqvqfqpTfzx0Q1NUedOixRMBfe2Whhb056a42cWs26Q==}
-
   '@types/node@20.17.19':
     resolution: {integrity: sha512-LEwC7o1ifqg/6r2gn9Dns0f1rhK+fPFDoMiceTJ6kWmVk6bgXBI/9IOWfVan4WiAavK9pIVWdX0/e3J+eEUh5A==}
+
+  '@types/node@22.7.5':
+    resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
 
   '@types/prop-types@15.7.14':
     resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
@@ -1028,9 +1017,6 @@ packages:
   axe-core@4.10.2:
     resolution: {integrity: sha512-RE3mdQ7P3FRSe7eqCWoeQ/Z9QXrtniSjp1wUjt5nRC3WIpz5rSCve6o3fsZ2aCpJtrZjSZgjwXAoTO5k4tEI0w==}
     engines: {node: '>=4'}
-
-  axios@1.6.8:
-    resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
 
   axios@1.7.7:
     resolution: {integrity: sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==}
@@ -1630,8 +1616,8 @@ packages:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
 
-  ethers@6.13.1:
-    resolution: {integrity: sha512-hdJ2HOxg/xx97Lm9HdCWk949BfYqYWpyw4//78SiwOLgASyfrNszfMUNB2joKjvGUdwhHfaiMMFFwacVVoLR9A==}
+  ethers@6.13.4:
+    resolution: {integrity: sha512-21YtnZVg4/zKkCQPjrDj38B1r4nQvTZLopUGMLQ1ePU2zV/joCfDC3t3iKQjWRzjjjbzR+mdAIoikeBRNkdllA==}
     engines: {node: '>=14.0.0'}
 
   eventemitter3@5.0.1:
@@ -2118,10 +2104,6 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
-  lodash.omit@4.5.0:
-    resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
-    deprecated: This package is deprecated. Use destructuring assignment syntax instead.
-
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
@@ -2466,11 +2448,20 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-dom@19.0.0:
+    resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
+    peerDependencies:
+      react: ^19.0.0
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+    engines: {node: '>=0.10.0'}
+
+  react@19.0.0:
+    resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
     engines: {node: '>=0.10.0'}
 
   readable-stream@2.3.8:
@@ -2558,14 +2549,14 @@ packages:
     resolution: {integrity: sha512-x/+Cz4YrimQxQccJf5mKEbIa1NzeCRNI5Ecl/ekmlYaampdNLPalVyIcCZNNH3MvmqBugV5TMYZXv0ljslUlaw==}
     engines: {node: '>= 0.4'}
 
-  sats-connect@2.6.0:
-    resolution: {integrity: sha512-/GPlLMQqdx5/vmsVQ8kkAKnyOLoAvOHO6i53nSmeD94CrsktgMa3xHFkE5ShDgb+1U2CmTajBm0TFJSwFLLIdg==}
-
-  sats-connect@3.2.0:
-    resolution: {integrity: sha512-rK674lORAI7h8RGg0ua3tQaPrEdEdDPwtqkvGjul5apXsHNqvB7QFQo1j/bPhRb7H4lwUr3unGKVaumcnbCSZQ==}
+  sats-connect@3.0.1:
+    resolution: {integrity: sha512-R+QHUJ00/2Irp5wapZcJPZUChsh2K5PcWRA9YqdetS94Ibn0k5gU23MP7cpX8pUE+Aeu7PFfWeEEdZRDEhNN7Q==}
 
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
+
+  scheduler@0.25.0:
+    resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
 
   secp256k1@3.8.1:
     resolution: {integrity: sha512-tArjQw2P0RTdY7QmkNehgp6TVvQXq6ulIhxv8gaH6YubKG/wxxAoNKcbuXjDhybbc+b2Ihc7e0xxiGN744UIiQ==}
@@ -2799,8 +2790,8 @@ packages:
   tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
 
-  tslib@2.4.0:
-    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+  tslib@2.7.0:
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -3314,7 +3305,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@ordzaar/ordit-sdk@3.0.0(typescript@5.7.3)(valibot@0.42.1(typescript@5.7.3))':
+  '@ordzaar/ordit-sdk@4.2.4(typescript@5.7.3)':
     dependencies:
       '@bitcoinerlab/secp256k1': 1.1.1
       '@wallet-standard/core': 1.1.0
@@ -3327,15 +3318,14 @@ snapshots:
       buffer-reverse: 1.0.1
       cross-fetch: 4.0.0
       ecpair: 2.1.0
-      ethers: 6.13.1
-      sats-connect: 2.6.0(typescript@5.7.3)(valibot@0.42.1(typescript@5.7.3))
+      ethers: 6.13.4
+      sats-connect: 3.0.1(typescript@5.7.3)
     transitivePeerDependencies:
       - bufferutil
       - debug
       - encoding
       - typescript
       - utf-8-validate
-      - valibot
 
   '@ordzaar/standard-prettier@2.3.0(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@8.57.1))(eslint-plugin-react-hooks@5.0.0(eslint@8.57.1))(eslint-plugin-react@7.37.4(eslint@8.57.1))(typescript@5.7.3)':
     dependencies:
@@ -3364,7 +3354,7 @@ snapshots:
     dependencies:
       typescript: 5.7.3
 
-  '@ordzaar/standard-web-linter@2.3.0(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.7.3)':
+  '@ordzaar/standard-web-linter@2.3.0(@types/eslint@8.56.12)(@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3))(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:
       '@ordzaar/standard-typescript': 2.3.0(typescript@5.7.3)
       eslint: 8.57.1
@@ -3382,7 +3372,7 @@ snapshots:
       eslint-plugin-simple-import-sort: 12.1.1(eslint@8.57.1)
       husky: 9.1.7
       lint-staged: 15.4.3
-      next: 14.2.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.24(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       prettier: 3.5.1
     transitivePeerDependencies:
       - '@babel/core'
@@ -3565,18 +3555,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@sats-connect/core@0.1.2(valibot@0.42.1(typescript@5.7.3))':
-    dependencies:
-      axios: 1.6.8
-      bitcoin-address-validation: 2.2.3
-      buffer: 6.0.3
-      jsontokens: 4.0.1
-      lodash.omit: 4.5.0
-      valibot: 0.42.1(typescript@5.7.3)
-    transitivePeerDependencies:
-      - debug
-
-  '@sats-connect/core@0.5.6(typescript@5.7.3)':
+  '@sats-connect/core@0.4.1(typescript@5.7.3)':
     dependencies:
       axios: 1.7.7
       bitcoin-address-validation: 2.2.3
@@ -3587,16 +3566,9 @@ snapshots:
       - debug
       - typescript
 
-  '@sats-connect/make-default-provider-config@0.0.10(@sats-connect/core@0.5.6(typescript@5.7.3))(typescript@5.7.3)':
+  '@sats-connect/make-default-provider-config@0.0.10(@sats-connect/core@0.4.1(typescript@5.7.3))(typescript@5.7.3)':
     dependencies:
-      '@sats-connect/core': 0.5.6(typescript@5.7.3)
-      '@sats-connect/ui': 0.0.6
-      bowser: 2.11.0
-      typescript: 5.7.3
-
-  '@sats-connect/make-default-provider-config@0.0.5(@sats-connect/core@0.1.2(valibot@0.42.1(typescript@5.7.3)))(typescript@5.7.3)':
-    dependencies:
-      '@sats-connect/core': 0.1.2(valibot@0.42.1(typescript@5.7.3))
+      '@sats-connect/core': 0.4.1(typescript@5.7.3)
       '@sats-connect/ui': 0.0.6
       bowser: 2.11.0
       typescript: 5.7.3
@@ -3686,9 +3658,11 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@18.15.13': {}
-
   '@types/node@20.17.19':
+    dependencies:
+      undici-types: 6.19.8
+
+  '@types/node@22.7.5':
     dependencies:
       undici-types: 6.19.8
 
@@ -4017,14 +3991,6 @@ snapshots:
       possible-typed-array-names: 1.1.0
 
   axe-core@4.10.2: {}
-
-  axios@1.6.8:
-    dependencies:
-      follow-redirects: 1.15.9
-      form-data: 4.0.2
-      proxy-from-env: 1.1.0
-    transitivePeerDependencies:
-      - debug
 
   axios@1.7.7:
     dependencies:
@@ -4861,14 +4827,14 @@ snapshots:
 
   esutils@2.0.3: {}
 
-  ethers@6.13.1:
+  ethers@6.13.4:
     dependencies:
       '@adraffy/ens-normalize': 1.10.1
       '@noble/curves': 1.2.0
       '@noble/hashes': 1.3.2
-      '@types/node': 18.15.13
+      '@types/node': 22.7.5
       aes-js: 4.0.0-beta.5
-      tslib: 2.4.0
+      tslib: 2.7.0
       ws: 8.17.1
     transitivePeerDependencies:
       - bufferutil
@@ -5392,8 +5358,6 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
-  lodash.omit@4.5.0: {}
-
   lodash@4.17.21: {}
 
   log-update@6.1.0:
@@ -5487,7 +5451,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@14.2.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@14.2.24(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       '@next/env': 14.2.24
       '@swc/helpers': 0.5.5
@@ -5495,9 +5459,9 @@ snapshots:
       caniuse-lite: 1.0.30001700
       graceful-fs: 4.2.11
       postcss: 8.4.31
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      styled-jsx: 5.1.1(react@18.3.1)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      styled-jsx: 5.1.1(react@19.0.0)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.24
       '@next/swc-darwin-x64': 14.2.24
@@ -5765,11 +5729,18 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-dom@19.0.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      scheduler: 0.25.0
+
   react-is@16.13.1: {}
 
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
+
+  react@19.0.0: {}
 
   readable-stream@2.3.8:
     dependencies:
@@ -5899,20 +5870,10 @@ snapshots:
       es-errors: 1.3.0
       is-regex: 1.2.1
 
-  sats-connect@2.6.0(typescript@5.7.3)(valibot@0.42.1(typescript@5.7.3)):
+  sats-connect@3.0.1(typescript@5.7.3):
     dependencies:
-      '@sats-connect/core': 0.1.2(valibot@0.42.1(typescript@5.7.3))
-      '@sats-connect/make-default-provider-config': 0.0.5(@sats-connect/core@0.1.2(valibot@0.42.1(typescript@5.7.3)))(typescript@5.7.3)
-      '@sats-connect/ui': 0.0.6
-    transitivePeerDependencies:
-      - debug
-      - typescript
-      - valibot
-
-  sats-connect@3.2.0(typescript@5.7.3):
-    dependencies:
-      '@sats-connect/core': 0.5.6(typescript@5.7.3)
-      '@sats-connect/make-default-provider-config': 0.0.10(@sats-connect/core@0.5.6(typescript@5.7.3))(typescript@5.7.3)
+      '@sats-connect/core': 0.4.1(typescript@5.7.3)
+      '@sats-connect/make-default-provider-config': 0.0.10(@sats-connect/core@0.4.1(typescript@5.7.3))(typescript@5.7.3)
       '@sats-connect/ui': 0.0.7
     transitivePeerDependencies:
       - debug
@@ -5921,6 +5882,8 @@ snapshots:
   scheduler@0.23.2:
     dependencies:
       loose-envify: 1.4.0
+
+  scheduler@0.25.0: {}
 
   secp256k1@3.8.1:
     dependencies:
@@ -6134,10 +6097,10 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  styled-jsx@5.1.1(react@18.3.1):
+  styled-jsx@5.1.1(react@19.0.0):
     dependencies:
       client-only: 0.0.1
-      react: 18.3.1
+      react: 19.0.0
 
   supports-color@7.2.0:
     dependencies:
@@ -6186,7 +6149,7 @@ snapshots:
       minimist: 1.2.8
       strip-bom: 3.0.0
 
-  tslib@2.4.0: {}
+  tslib@2.7.0: {}
 
   tslib@2.8.1: {}
 
