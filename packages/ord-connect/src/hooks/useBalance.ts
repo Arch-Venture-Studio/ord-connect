@@ -23,7 +23,8 @@ export function useBalance() {
       }
       const { address } = getAddressesFromPublicKey(
         publicKey.payments,
-        network,
+        // @ts-ignore
+        network === "testnet4" ? "testnet" : network,
         ADDRESS_FORMAT_TO_TYPE[format.payments] as Exclude<
           AddressType,
           "p2wsh"

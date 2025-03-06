@@ -65,7 +65,10 @@ const connectWallet = async (
       };
     }
     case Wallet.XVERSE: {
-      const xverse = await getXverseAddresses(network);
+      // @ts-ignore
+      const xverse = await getXverseAddresses(
+        network === "testnet4" ? "testnet" : network,
+      );
       if (!xverse || xverse.length < 1) {
         throw new Error("Xverse via Ordit returned no addresses");
       }
