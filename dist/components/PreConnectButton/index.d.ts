@@ -1,4 +1,5 @@
 import { OrdConnectKitProps } from '../OrdConnectKit';
+
 interface PreConnectButtonProps extends OrdConnectKitProps {
     openModal: () => void;
     disabled?: boolean;

@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Wallet } from '../../providers/OrdConnectProvider';
+
 export interface WalletButtonProps {
     wallet: Wallet;
     onConnect: () => Promise<boolean>;

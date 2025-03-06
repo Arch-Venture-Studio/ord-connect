@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { AddressFormat } from '@ordzaar/ordit-sdk';
+
 export declare enum Network {
     MAINNET = "mainnet",
     TESTNET = "testnet",
@@ -24,9 +25,7 @@ export type BiAddressString = BiAddress<string>;
 export type BiAddressFormat = BiAddress<AddressFormat>;
 interface OrdConnectContextType {
     address: BiAddressString;
-    testnetAddress: BiAddressString;
     updateAddress: (address: BiAddressString) => void;
-    updateTestnetAddress: (address: BiAddressString) => void;
     publicKey: BiAddressString;
     updatePublicKey: (publicKey: BiAddressString) => void;
     network: Network;

@@ -1,5 +1,6 @@
 import { AddressFormat } from '@ordzaar/ordit-sdk';
 import { Network, Wallet } from '../providers/OrdConnectProvider';
+
 interface SignMessageParams {
     message: string;
     wallet: Wallet;
