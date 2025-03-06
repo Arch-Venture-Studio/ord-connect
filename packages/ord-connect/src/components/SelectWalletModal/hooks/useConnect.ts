@@ -65,8 +65,8 @@ const connectWallet = async (
       };
     }
     case Wallet.XVERSE: {
-      // @ts-ignore
       const xverse = await getXverseAddresses(
+        // @ts-ignore
         network === "testnet4" ? "testnet" : network,
       );
       if (!xverse || xverse.length < 1) {
