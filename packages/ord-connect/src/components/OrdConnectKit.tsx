@@ -49,6 +49,7 @@ export function OrdConnectKit({
     isModalOpen,
     openModal,
     closeModal,
+    visibleWallets,
   } = useOrdConnect();
 
   const hasMounted = useHasMounted();
@@ -88,6 +89,7 @@ export function OrdConnectKit({
           renderAvatar={renderAvatar}
           preferredWallet={preferredWallet}
           walletsOrder={walletsOrder}
+          visibleWallets={visibleWallets}
         />
       ) : null}
     </>
