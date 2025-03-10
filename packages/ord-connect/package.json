@@ -60,7 +60,7 @@
     ]
   },
   "peerDependencies": {
-    "@ordzaar/ordit-sdk": "git+https://github.com/Arch-Venture-Studio/ordit-sdk.git#71dfe927f70e07aa7381e638779d0dbb8b313101",
+    "@ordzaar/ordit-sdk": "git+https://github.com/Arch-Venture-Studio/ordit-sdk.git#1b75e2caa1193a341ce8ce4f6beef89feae27e4b",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }
