@@ -1,0 +1,114 @@
+name: Process Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for all branches
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          # Explicitly remove the cache option that was causing the error
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.14.2
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Get version from release tag
+        id: get_version
+        run: |
+          # Use release tag as is, keeping the v prefix
+          VERSION="${{ github.event.release.tag_name }}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: Save built files
+        run: |
+          # Create a temporary directory to store the files
+          mkdir -p /tmp/build-files
+
+          # Copy the built files
+          cp -r packages/ord-connect/dist /tmp/build-files/
+          cp packages/ord-connect/package.json /tmp/build-files/
+
+      - name: Get commit hash
+        id: get_commit
+        run: echo "hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Switch to release branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --heads origin release | grep release; then
+            git checkout -b release origin/release
+            git rm -rf .
+          else
+            git checkout --orphan release
+            git rm -rf .
+          fi
+
+      - name: Copy package.json, dist folder, and create index.d.ts
+        run: |
+          # Create empty directory structure
+          mkdir -p dist
+
+          # Copy saved files from temp directory
+          cp -r /tmp/build-files/dist/* dist/
+          cp /tmp/build-files/package.json .
+
+          # Create index.d.ts file
+          echo 'export * from "./dist/index";' > index.d.ts
+
+      - name: Commit and push release
+        run: |
+          git add package.json dist index.d.ts
+          git commit -m "Release ${{ steps.get_version.outputs.version }} from ${{ steps.get_commit.outputs.hash }}" --allow-empty
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git release
+
+      - name: Delete existing tag and recreate it on release branch
+        run: |
+          # First move to release branch if not already there
+          git checkout release
+
+          # Delete the tag locally and remotely
+          git tag -d ${{ steps.get_version.outputs.version }} || true
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git :refs/tags/${{ steps.get_version.outputs.version }} || true
+
+          # Create the tag on the release branch
+          git tag ${{ steps.get_version.outputs.version }}
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git ${{ steps.get_version.outputs.version }}
