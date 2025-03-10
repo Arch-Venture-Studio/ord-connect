@@ -1,6 +1,5 @@
 import { PropsWithChildren } from 'react';
 import { AddressFormat } from '@ordzaar/ordit-sdk';
-
 export declare enum Network {
     MAINNET = "mainnet",
     TESTNET = "testnet",
@@ -11,7 +10,9 @@ export declare enum Wallet {
     XVERSE = "xverse",
     MAGICEDEN = "magiceden",
     LEATHER = "leather",
-    OKX = "okx"
+    OKX = "okx",
+    PHANTOM = "phantom",
+    OYL = "oyl"
 }
 export declare enum Chain {
     BITCOIN = "bitcoin",
@@ -40,12 +41,9 @@ interface OrdConnectContextType {
     disconnectWallet: () => void;
     chain: Chain;
     updateChain: (chain: Chain) => void;
-    visibleWallets: Wallet[];
-    updateVisibleWallets: (visibleWallets: Wallet[]) => void;
 }
 export type OrdConnectProviderProps = {
     network: Network;
-    visibleWallets: Wallet[];
     chain?: Chain;
     ssr?: boolean;
 };
@@ -74,6 +72,6 @@ export type OrdConnectProviderProps = {
  * @param props.ssr - Enable SSR.
  * @returns Provider component for OrdConnect.
  */
-export declare function OrdConnectProvider({ children, network: _network, visibleWallets: _visibleWallets, chain: _chain, ssr, }: PropsWithChildren<OrdConnectProviderProps>): import("react/jsx-runtime").JSX.Element;
+export declare function OrdConnectProvider({ children, network: _network, chain: _chain, ssr, }: PropsWithChildren<OrdConnectProviderProps>): import("react/jsx-runtime").JSX.Element;
 export declare function useOrdConnect(): OrdConnectContextType;
 export {};

@@ -1,6 +1,5 @@
 import { Psbt } from 'bitcoinjs-lib';
 import { Network, Wallet } from '../providers/OrdConnectProvider';
-
 interface InputsToSign {
     address: string;
     signingIndexes: number[];
