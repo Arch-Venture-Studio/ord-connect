@@ -30,8 +30,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ordzaar/ordit-sdk':
-        specifier: ^4.2.0
-        version: 4.2.0(typescript@5.7.2)
+        specifier: git+https://github.com/Arch-Venture-Studio/ordit-sdk.git#4f0b337a72e8b8fb4f00191607d56ce645c28ace
+        version: https://codeload.github.com/Arch-Venture-Studio/ordit-sdk/tar.gz/4f0b337a72e8b8fb4f00191607d56ce645c28ace(typescript@5.7.2)
       bignumber.js:
         specifier: ^9.1.2
         version: 9.1.2
@@ -432,8 +432,9 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@ordzaar/ordit-sdk@4.2.0':
-    resolution: {integrity: sha512-lYxJMXHPTINoyZQRAFmwcz8fPOZg+OBpOa5RGpl+p6vQ8JEtBGzQK+s+vQ0QIDhq+wvGaXHGoTp8k+VW4N6yTA==}
+  '@ordzaar/ordit-sdk@https://codeload.github.com/Arch-Venture-Studio/ordit-sdk/tar.gz/4f0b337a72e8b8fb4f00191607d56ce645c28ace':
+    resolution: {tarball: https://codeload.github.com/Arch-Venture-Studio/ordit-sdk/tar.gz/4f0b337a72e8b8fb4f00191607d56ce645c28ace}
+    version: 0.0.0
 
   '@ordzaar/standard-prettier@2.2.0':
     resolution: {integrity: sha512-eWMecRnLXWG9dj1G/Yjj8vjllksHXw5QfOjUxqh3FQYlyQXRnnm//5F9snMf2COI8+MmgA7brycSDOj4s6eqyg==}
@@ -625,8 +626,8 @@ packages:
   '@rushstack/ts-command-line@4.23.1':
     resolution: {integrity: sha512-40jTmYoiu/xlIpkkRsVfENtBq4CW3R4azbL0Vmda+fMwHWqss6wwf/Cy/UJmMqIzpfYc2OTnjYP1ZLD3CmyeCA==}
 
-  '@sats-connect/core@0.4.1':
-    resolution: {integrity: sha512-//0ge/FbKQZdhfFBR7LKdJxpzVB+bGfqHwkjHl0EX3QwvAu8n0dSoUZlym43+KB7gy0rgv1+ECFrOCeYGpGFgA==}
+  '@sats-connect/core@0.5.3':
+    resolution: {integrity: sha512-/2Z5v0DXXXfMM5o9r42EKsuZzy2XVeStN+Vs4uzcVfszK4LjkDftXEz5+EX8IuZbNDzpO6f0f0z1I1TtmQDb4A==}
 
   '@sats-connect/make-default-provider-config@0.0.10':
     resolution: {integrity: sha512-BBot3Ofa2J7OwXprgYPD4C8dppX4nnPxj4FXWq1H7fDsvwJmW4sAnfmnAIzwmyWZJOR2uZqtTkXAA08sVkoN5g==}
@@ -2540,8 +2541,8 @@ packages:
     resolution: {integrity: sha512-CdASjNJPvRa7roO6Ra/gLYBTzYzzPyyBXxIMdGW3USQLyjWEls2RgW5UBTXaQVp+OrpeCK3bLem8smtmheoRuw==}
     engines: {node: '>= 0.4'}
 
-  sats-connect@3.0.1:
-    resolution: {integrity: sha512-R+QHUJ00/2Irp5wapZcJPZUChsh2K5PcWRA9YqdetS94Ibn0k5gU23MP7cpX8pUE+Aeu7PFfWeEEdZRDEhNN7Q==}
+  sats-connect@3.1.0:
+    resolution: {integrity: sha512-uZbZs6vw2OV5D0bXS2S1H+U4+FQBU745vg30AbhbeqfT0ZiPLqqP02JCfM1dN4psEnYlbBtdRsfpvMh2spqIdA==}
 
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
@@ -3285,7 +3286,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@ordzaar/ordit-sdk@4.2.0(typescript@5.7.2)':
+  '@ordzaar/ordit-sdk@https://codeload.github.com/Arch-Venture-Studio/ordit-sdk/tar.gz/4f0b337a72e8b8fb4f00191607d56ce645c28ace(typescript@5.7.2)':
     dependencies:
       '@bitcoinerlab/secp256k1': 1.1.1
       '@wallet-standard/core': 1.1.0
@@ -3299,7 +3300,7 @@ snapshots:
       cross-fetch: 4.0.0
       ecpair: 2.1.0
       ethers: 6.13.4
-      sats-connect: 3.0.1(typescript@5.7.2)
+      sats-connect: 3.1.0(typescript@5.7.2)
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -3529,7 +3530,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@sats-connect/core@0.4.1(typescript@5.7.2)':
+  '@sats-connect/core@0.5.3(typescript@5.7.2)':
     dependencies:
       axios: 1.7.7
       bitcoin-address-validation: 2.2.3
@@ -3540,9 +3541,9 @@ snapshots:
       - debug
       - typescript
 
-  '@sats-connect/make-default-provider-config@0.0.10(@sats-connect/core@0.4.1(typescript@5.7.2))(typescript@5.7.2)':
+  '@sats-connect/make-default-provider-config@0.0.10(@sats-connect/core@0.5.3(typescript@5.7.2))(typescript@5.7.2)':
     dependencies:
-      '@sats-connect/core': 0.4.1(typescript@5.7.2)
+      '@sats-connect/core': 0.5.3(typescript@5.7.2)
       '@sats-connect/ui': 0.0.6
       bowser: 2.11.0
       typescript: 5.7.2
@@ -4646,7 +4647,7 @@ snapshots:
       debug: 4.3.7
       enhanced-resolve: 5.17.1
       eslint: 8.57.1
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
       fast-glob: 3.3.2
       get-tsconfig: 4.8.1
       is-bun-module: 1.2.1
@@ -4659,7 +4660,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -4693,7 +4694,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.7.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -5832,10 +5833,10 @@ snapshots:
       es-errors: 1.3.0
       is-regex: 1.1.4
 
-  sats-connect@3.0.1(typescript@5.7.2):
+  sats-connect@3.1.0(typescript@5.7.2):
     dependencies:
-      '@sats-connect/core': 0.4.1(typescript@5.7.2)
-      '@sats-connect/make-default-provider-config': 0.0.10(@sats-connect/core@0.4.1(typescript@5.7.2))(typescript@5.7.2)
+      '@sats-connect/core': 0.5.3(typescript@5.7.2)
+      '@sats-connect/make-default-provider-config': 0.0.10(@sats-connect/core@0.5.3(typescript@5.7.2))(typescript@5.7.2)
       '@sats-connect/ui': 0.0.7
     transitivePeerDependencies:
       - debug
